@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+    <script>
+
+
+	function aaa() {
+
+			var aaa = ["수박", "바나나", "복숭아"];
+
+			var ul = document.getElementById("myList");
+			
+			for (var i=0; i < aaa.length; i++){
+				//alert(x[i].innerText);
+
+				var li = document.createElement("li");
+				var txt = document.createTextNode(aaa[i]);
+				li.appendChild(txt);
+
+				ul.appendChild(li);
+			
+			}
+
+
+
+	}
+    </script>
+</head>
+<body>
+
+<ul id="myList">
+</ul>
+<button onclick="aaa();">클릭하세요.</button>
+</body>
+</html>

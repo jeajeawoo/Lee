@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+    <script>
+		// 각각의 입력 양식을 클릭 하면 value 값을
+		// div 태그의 배경색상으로 설정하세요
+		// this 를 이용
+
+
+
+
+
+
+
+
+function chcolor1(obj){
+
+	document.getElementById("test").style.backgroundColor =obj.value;
+
+
+	}
+
+
+
+
+    </script>
+</head>
+<body>
+<input type="text" onclick="chcolor1(this);" value="red"><br />
+<input type="text" onclick="chcolor1(this);" value="green"><br />
+<input type="text" onclick="chcolor1(this);" value="yellow"><br />
+<div id="test">배경색상을 변경해 볼까요?</div>
+</body>
+</html>

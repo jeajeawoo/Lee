@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+</style>
+<script>
+/* $(document).ready(function(){
+	//코드 입력
+	$("#bt").click(function(){
+		$("#aaa").css("color", "red");
+		});
+	}); */
+
+/* $(document).ready(function(){
+	$("#bt").click(function(){
+		
+		$("div > p").css("backgroundColor", "Yellow");
+		
+		$("div  a").css("backgroundColor", "green");
+		
+		// 속성 : 선택자[속성명]
+		//$("a[href]").css("backgroundColor", "yellow");
+
+		// 속성 : 선택자[속성명=값] ==>  동일한 값
+		//$("a[href='http://www.naver.com']").css("backgroundColor", "yellow");
+
+		// 선택자[속성명*=값] ==> 값이 포함된것
+		//$("a[href*='http://www.naver.com']").css("backgroundColor", "yellow");		
+
+		});
+	});  */
+
+/* $(document).ready(function() {
+	
+	$("#bt").click(function() {
+
+		// 필터선택자 : 선택자:타입
+		$(":password").css("backgroundColor", "yellow");
+
+		});
+
+	});  */
+
+/* $(document).ready(function() {
+	
+	$("#bt").click(function() {
+		
+		// 속성선택자 : selected, checked, disabled, focus
+		// 셀렉트에서 사용자가 선택한 옵션
+		// value, text
+		// val(), text()
+		var a = $(":selected").val();
+		var b = $(":selected").text();
+
+		alert(a);
+		alert(b);
+
+		});
+
+	});  */
+
+/* $(document).ready(function() {
+	
+	$("#bt").click(function() {
+
+		//  첫번째 한개씩
+		$("ol > li:first-child").css("color", "red");
+
+		});
+
+	}); */
+
+/* $(document).ready(function() {
+
+	$("#bt1").click(function() { //숨기기
+
+		$("#aa").hide();
+		//즉시 실행
+
+		});
+
+	$("#bt2").click(function() { // 보이기
+
+		$("#aa").show();
+		//즉시 실행
+
+		});
+
+	});  */
+
+/* $(document).ready(function() {
+
+	$("#bt1").click(function() { 
+		// 2초 동안 숨기기가 완료 된 후 alert("숨기기 성공");
+
+		$("#aa").delay(2000).hide(2000, function() { //체이닝
+			alert("숨기기 성공");
+			});
+
+		});
+
+	});  */
+
+/* $(document).ready(function() {
+
+	$("#bt1").click(function() { 
+
+	//$("#aa").css("backgroundColor", "green");
+	//$("#aa").css("color", "white");
+	//$("#aa").css("fontSize", "32px");
+	// {"속성":"값", "속성":"값"}
+	$("#aa").css({"backgroundColor":"green", "color":"white", "fontSize":"32px"});
+
+		});
+
+	});  */
+
+
+
+</script>
+</head>
+<body>
+<h1 id="aaa">jquery</h1>
+
+<div>
+<p>단락태그 1</p><!--자손--->
+<p>단락태그 2<a href="http://www.naver.com">후손</a></p>
+<p>단락태그 3</p>
+</div>
+
+<p>단락태그</p>
+
+<input type="text" value="apple"><br />
+<input type="password" value="12345"><br />
+<input type="checkbox"><br />
+
+<select>
+<option value="1">apple</option>
+<option value="2">melon</option>
+</select>
+
+
+<ol>
+	<li>apple</li>
+	<li>melon</li>
+	<li>banana</li>
+	<li>pineapple</li>
+	<li>mango</li>
+</ol>
+
+<ol>
+	<li>apple</li>
+	<li>melon</li>
+	<li>banana</li>
+	<li>pineapple</li>
+	<li>mango</li>
+</ol>
+<button id="bt">클릭하세요</button>
+
+
+<div id="aa">
+블럭태그
+</div>
+<button id="bt1">숨기기</button> <button id="bt2">보이기</button>
+
+
+</body>
+</html>
+

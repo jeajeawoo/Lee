@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+	</script>
+	<script>
+		 $(document).ready(function () {
+
+            // 글자를 입력하면 남은 글자수를 div에 출력
+			// 50글자가 넘어가면 경고창을 띄우고 출력 안함
+
+/*			$("texteraea").change(function(event){
+
+				if($("textarea").val().length > 50){
+					alert("50글자 이상 입니다")
+					event.preventDefault();
+					};
+				});
+	
+			});  */
+
+
+		$("textarea").on("change",changeevent)
+						
+			function changeevent(event) {			
+				var aa = 50 - $("textarea").val().length
+				if($("textarea").val().length > 50){
+					alert("50글자 이상 입니다")
+					event.preventDefault();
+					$("textarea").val($("textarea").val().substring(0, 50));
+					};
+				$("div").append(aa)
+				};
+			
+		}); 
+			
+
+
+
+/*		function changediv() {
+
+				var aa = 
+
+				};
+
+		$("textarea").on({
+
+				"change" : changediv
+
+			});
+		}); */
+       	
+//$("button").on("click", changeBack);
+/*$(document).ready(function(){
+
+	//글자를 3자 이상
+	$("form").submit(function(event){
+		if($("#na").val().length < 3) {
+
+		alert("3글자 이상 입력");
+		event.preventDefault();
+
+		//자바스크립트
+		//retun false
+		}
+$("div").on({
+
+		"click" : changeColor,
+		"mouseover" : changeSize,
+		
+		});
+	});
+maxlength="50"
+
+}); */
+	</script>
+</head>
+<body>
+
+   <p>50자 이내의 글자를 입력해 주세요</p>
+   <textarea rows=10></textarea>
+   <div></div>    
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>						
+  <style>
+						/* 속성 선택자*/
+						/* 선택자[속성명]{}*/
+						/* 선택자[속성명="속성값"] */
+a[href]{color:red;}
+input[type="password"] {background-color:pink;}
+a[href*="google"] { color:pink;		/*[속성명*="속성값"]속성값이 들어간것들만 바뀜 */
+			text-decoration:none;}
+
+a:hover { text-decoration:underline;}		/* 마우스 올리면 밑줄 */
+a[href*="google"]:visited { color:blue;}	/* 한번이라도 클릭 하면 색상 */
+						/* rgb(255,255,255); hex --> #FF0000 */
+						/* px(절대값) , %(상대값) */
+a[href*="google"] { font-size:32px;}		/* /usr/share/fonts */
+div { font-size:200%;				/* 브라우저마다 다르기때문에 상대값을 이용하는게 용이 */
+	font-family:'Carlito','Caladea';	/* 공백이 있는 폰트는 '' 사용자가 없을 경우 대비 폰트 여러개 */			
+	font-style:italic;			/* font - size(크기) family(글꼴) style(기울기) weight(두께) */
+	font-weight:bold;		} 	/* text - aling(글자정렬) decoration(글자선) shadow(글자그림자) */	
+						
+h1 {text-align:center; 
+	text-decoration:line-through;		/* none, overline, line-through, underline */	
+	text-shadow:5px 5px 1px gray;		/* shadow : 오른쪽 , 아래 , 선명도 , 색상 */
+	background-color:ivory;	
+	box-shadow:5px 5px 2px hotpink;	/* box - shadow(레이아웃 그림자) */
+	width:500px;
+	height:100px;
+	margin:10px 20px 15px 5px;				
+	}						
+span { background-color:gray;			/*margin(블럭 밖의 여백) padding(블럭 안의 여백) */
+	display:inline-block;			/*형식은 인라인이나 크기, 여백을 정상적으로 적용*/	
+	margin:10px;
+	font-size:30px;
+
+	}	
+						/* 블럭 : 공간이 한라인 아래에 생성 <h1>,<p>,<div>*/
+ 						/* 인라인 : 한 라인에 순서대로 생성 <a>, <img>, <span> */
+						/* 블럭은 크기나  여백 설정가능 */
+
+#box1 {background-color:yellow; 		/*border - 두께 모양 색상 */
+	width:200; 				/*border - radius:25px; 모서리 둥근 테두리*/	
+	padding:20px;
+	border-radius:10px;}
+#box2 {background-color:red; 
+	margin:10px;
+	border:2px solid black;}
+
+</style>
+</head>
+<bord>
+
+<a href="http://www.naver.com">naver</a><br />
+<a href="http://www.google.com">google</a><br />
+
+<img src="이미지.jpeg" /> <br />
+
+<input /> 
+<input type="text" />
+<input type="password"/>
+
+<div id="div1">
+	<div id="div2">
+예시 글자
+ </div>
+</div>
+
+<h1>예시 글자</h1>
+
+<span>inline</span><span>inline</span>
+
+
+
+</bord>
+</html>
+

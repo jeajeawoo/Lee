@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<style>
+	div {
+		width:300px;
+		height:150px;
+		background-color:#FFFF00;
+		font-size:20px;
+	}
+	</style>
+    <script>
+	
+	var ary = ["벤틀리:아우디:페라리", "수박:사과:바나나", "서울:부산:대구:진주"];
+	// 버튼을 클릭하면 첫번재 옵션의 선택에 따라
+	// 순서대로 ary 의 값이 두번째 셀텍트의 옵션으로 생성
+
+
+
+
+
+
+
+
+
+
+ function myFunction(){
+	
+	for(var i=0; i<ary.length; i++){		
+
+		var sel1 = document.getElementById("mySelect");
+		var aa = sel1.options[sel1.selectedIndex].value;
+		
+		var sel2 = document.getElementById("mySelect2");
+
+		var bb = document.createElement("option");
+
+				
+		
+		var ee = ary[aa].split(":")
+
+		var cc = document.createTextNode(ee[i])
+
+		bb.appendChild(cc)
+	
+		sel2.appendChild(bb)
+	
+		}
+
+	} 
+//split(":")
+/* function crt() {
+
+	var aa = /* function crt() {
+
+	var aa = document.createElement("a");
+	// <a></a>
+
+	var txt = document.createTextNode("네이버");
+	// 네이버
+
+	aa.appendChild(txt);
+	// <a>네이버</a>
+
+	aa.setAttribute("href", "http://www.naver.com");
+
+	document.getElementById("aaa").appendChild(aa);
+
+	}  */
+
+/* function crt() {
+
+	// 셀렉트 접근
+
+	var sel = document.getElementById("test3");
+	// 사용자가 선택한 옵션의 value, text 
+	// 객체.selectedIndex
+	
+	var aa = sel.options[sel.selectedIndex].value;
+	var bb = sel.options[sel.selectedIndex].text;
+
+	document.getElementById("aaa").innerHTML = aa + bb;
+
+	} */
+
+
+    </script>
+</head>
+<body>
+
+<select id="mySelect">
+<option value="0">자동차선택</option>
+<option value="1">과일선택</option>
+<option value="2">지역선택</option>
+</select>
+
+<select id="mySelect2">
+</select>
+<button onclick="myFunction()">옵션 복사하기</button>
+
+</body>
+</html>

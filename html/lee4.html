@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>타이틀</title>
+
+<script>							/* 인터프리트언어(한줄씩 읽어내려가는) -> 컴파일 언어(소스코드-->0 또는 1로)  -> 실행(C언어,java,,,,)*/ 
+//alert("hello");						//alert("출력할것"); -> 브라우저안에 경고창(팝업창) 출력한다//
+//alert("hello \n javascript");				//alert(""); -> 줄바꿈: \n( 이스케이프 문자)					
+//document.write("hello javascript");				//document.write(""); -> body에 내용을 출력
+//document.write("hello <br />javascript");			//document.write(""); -> 줄바꿈 <br />
+//console.log("hello");					//console.log(""); ->  개발자모드 콘솔에 출력
+/*var a="hello";						//변수 (var 변수이름=값;)  
+document.write(a); */						//문자 또는 문자열 -> var 변수이름 = "문자열"; , '문자열';
+/*var b=100;							//숫자 -> var 변수이름 = 숫자; 
+document.write(b);*/			
+/*var c=true;							//불리언(Boolean) ; true, false -> var 변수이름 = true;
+document.write(c);*/
+								//"+" -> 문자열을 연결 연산자	"=" -> 대입(할당)연산자
+//document.write("hello "+"javascript<br/>");
+
+/*var a = "hello ";				
+var b = "javascript";
+document.write(a+b);	*/					// 변수를 함수에 입력할 경우 "" 안씀
+								// undefined : 선언 후 값이 할당 안됨
+/*var a = 100;
+var b = 200;
+document.write(a+b); 
+document.write(100+200); */
+
+/*document.write(typeof("abc"));				//typeof(값 또는 변수) -> 자료형을 확인하는 연산자
+document.write("<br/>");						
+document.write(typeof("100"));
+document.write("<br/>");
+document.write(typeof(100));
+document.write("<br/>");
+document.write(typeof(true)); */
+
+/*var a= 10;
+var b= 3;
+var c= a+b;
+document.write(a+b);
+document.write("<br/>");
+document.write(a-b);
+document.write("<br/>");
+document.write(a*b);
+document.write("<br/>");
+document.write(a/b);
+document.write("<br/>");
+document.write(a%b); */
+
+								//단어_단어 : 스네이크 케이스 -> var home_addres  
+								//단어첫글자대문자단어 : 케멀케이스 -> var homeAddres , getName()
+
+								//var 변수명= prompt("메세지","미리입력되어있는값");
+/*var name = prompt("Name input","Mikle");			//값을 입력 받아서 변수에 저장한다(리턴한다)
+var address = prompt("address input","");
+document.write(name+address); */
+
+/*var num1 = prompt("Number1 input","")
+var num2 = prompt("Number2 input","")
+document.write(num1+num2); */					//기본적으로 문자열을 리턴해준다 
+								//자료형 강제 형 변환 -> 문자를 숫자로 변환:Number(변환할것) 
+/*var num1 = prompt("Number1 input","")
+var num2 = prompt("Number2 input","")
+var num11 = Number(num1);
+var num22 = Number(num2);
+document.write(num11+num22); */
+
+/* var num1 = Number(prompt("Number1 Input", ""));
+var num2 = prompt("Number2 Input", "");
+var num22 = Number(num2);
+document.write(num1+num22); */
+
+								//증감 연산자 : 피연산자++ -> 명령문을 실행하고 1증가 , ++피연산자 -> 1증가하고 명령문을 실행
+
+/*var num = 10;
+document.write(num++);    //10을 출력 후 1증가 하고 저장
+document.write("<br />");
+document.write(num++);    //11을 출력 후 1증가 하고 저장
+document.write("<br />");
+document.write(num++); */ //12를 출력 후 1증가 하고 저장
+
+
+/*var num = 10;						//복합 대입 연산자 
+num += 5;
+document.write(num); */
+
+								//비교 연산자 :  결과가 boolen으로 반환(true, false)
+/*var num1 = 100; 						//값 == 값 : 2개의 값이 같으면 true , 다르면 false
+var num2 = 50;
+document.write(num1 == num2); 
+document.write("<br />");
+document.write(num1 > num2);
+document.write("<br />");
+document.write(num1 >= num2);
+document.write("<br />");
+document.write(num1 < num2);
+document.write("<br />");
+document.write(num1 <= num2); */
+
+/*var num1 = prompt("","");					// 논리 연산자 :  결과가 boolen으로 반환{true, false)
+var num2 = prompt("","");					// 연사닉 || 연산식 : or  연산, 두개중의 하나만 true 이면 true로 반환
+var num3 = prompt("","");	
+document.write(num1 == num2 || num1 == num3 );	*/
+
+/*var num1 = 100;						// 연산식 && 연산식 : AND 연산자, 모두 true 일때만 true
+var num2 = 50;
+var num3 = 100;
+document.write(num1 == num2 && num1 == num3); */
+
+								// if(조건식){조건식의 결과가 true일떄  수행할명령문들;}
+
+/*var num1 = 100;										
+var num2 = 50;
+if(num1 > num2){document.write("num1 이 큽니다");}		//if(조건식) {조건식의 결과가 true일떄 수행할 명령문들;} else{""}
+document.write("<br /> 조건문 바깥에 실행"); */
+		
+/*var num1 = Number(prompt("Number input", ""));		// num1 / 2 == 0
+if(num1>=0){document.write("양수");}
+esle{document.write("음수") */
+
+/*var num1 = 5;
+// num1 이 홀수 인지 짝수 인지 구분
+if(num1 % 2 == 0) {document.write("짝수");}
+else{document.write("홀수");}  */
+
+								// 중첩 조건문
+/*var num1 = 5;
+if(num1 == 0) {document.write("");}
+else if(num1 % 2 == 0){ document.write("짝수");}
+	else{ducument.write("홀수");} */
+
+/* var num1 = 87;
+
+if(num1 >= 90) {document.write("A");}
+else if(num1 >= 80) {document.write("B");}
+else if(num1 >= 70) {document.write("C");}
+else {document.write("F");} */
+
+								//인덱스 : 배열 요소의 순서, "0"부터 시작
+								/* 배열선언 : var  배열명 = [배열요소1, 배열요소2,,,]
+								배열요소 사용 : 배열명[인덱스] 
+								인덱스 : 배열요소의 순서 , 0부터 시작 */
+/*var ary = ["apple", "mango", "pineapple", "banana", "peach"];	
+document.write(ary[0]);					
+document.write(ary[1]);
+document.write(ary[2]);
+document.write(ary[3]);
+document.write(ary[4]); */
+
+								//배열명.length : 배열요소의 갯수 ==> 속성(property)
+//document.write(ary.length);					//object:배열객체
+
+
+
+</script>
+
+
+</head>
+<body>
+
+
+</body>
+</html>
+

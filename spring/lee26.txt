@@ -1,0 +1,172 @@
+https://github.com/junit-team/junit4/wiki/Getting-started
+
+https://github.com/junit-team/junit4/wiki/Assertions
+
+
+junit(자바 단위 테스트)
+
+두 값이 같은 지 비교
+
+assertEquals(예상값, 실제값)
+
+assertSame(예상객체,실제객체)
+
+insert 
+    	//1. 예상 데이터
+        BoardForm dto= new BoardForm(null,"제목테스트","컨텐츠테스트");
+        Board board = new Board(23L,"제목테스트","컨텐츠테스트");
+        //2. 실제 데이터(함수 호출)
+        Board result = boardService.inputBoard(dto);
+        //3. 비교
+        assertEquals(board.toString(),result.toString());
+
+update
+	1.정상값 비교
+	id,dto(id,title,content);
+
+	2.틀린 아이디
+
+	3.id와 dto의 아이디가 다를경우
+
+	4.title이 null일 경우
+
+	5.content가 null일 경우
+
+
+apche jmeter - 성능 테스트
+
+본인 서버 주소 : localhost
+포트 번호 : 8089
+url : /api/members
+
+post
+
+       name		    value
+Content-type  | application / json
+
+1. Thread(Users) 
+Thread Group
+2.sampler
+HTTP Request
+3.Listner
+View Result in Table
+
+
+//
+
+클라우드 컴퓨팅의 필요성
+
+cloud도입을 통해 IT 리소스의 탄력적 사용으로 인한 TCO절감은 물론 Porcess혁신으로 신속한 사업 추진 가능
+
+스트리밍 서비스
+
+환경적인 문제
+저탄소, 고효율
+
+laaS 서버만,
+
+PaaS 개발환경에 필요한 소프트웨어를 구현할 수 있도록 지원
+
+SaaS 사용자가 인터넷에 원격으로 접속해 소프트웨어를 활용
+
+
+putty로 원격접속
+
+자바 RPM : 페도라
+Debian : 우분투
+
+페도라:dnf -y install
+우분투 설치명령어
+dpkg -i 설치파일명
+
+dpkg -i jdk 탭키
+
+apt update 최신업데이트
+apt -y install mysql-server
+systemctl start mysql
+mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '111111';
+update user set host = '%' where user ='root' and host='localhost';
+CREATE DATABASE sqlDB CHARACTER SET utf8 COLLATE utf8_general_ci;
+vi /etc/mysql/mysql.conf.d/mysqld.cnf
+bind-address = 000.0.0.0
+esc :wq 엔터
+systemctl restart mysql
+
+java -jar 프로젝트.jar
+
+-http / 80
+인바운드 : 외부 , 아웃바운드
+-사용자 지정 TCP / 8088
+
+
+<버전관리>
+VCS-DVCS
+Version Control System
+
+---------
+CVCS(중앙 저장소에서 전부 관리)
+Center Version Control System
+
+중앙 저장소()
+history내역 기록
+
+---------
+DVCS(분산 버전 관리 시스템)
+Distributed Version Control System
+
+작업공간을 초기화 (init) --> 폴더에서 힛 배쉬로 터미널 켜서 git init
+git config --global user.name "jeajeawoo"
+
+​git config --global user.email "ajdz123@naver.com"
+
+변경 내용 발생
+
+git status
+
+git add (스테이지에 등록)
+
+git add aaa.txt(파일 지정)
+git add . (모든 파일)
+
+인덱스 영역에 변경내역을 저장(트리 구조)
+해시코드로 변경해서 저장
+
+commit 트랜젝션 단위로 커밋
+
+git commit -m "프로젝트 설명 파일 추가"  m->message
+
+git log ==> 로그보기
+# q ==> 빠져나오기
+브랜치 -독립된 작업영역(mastrt-기본브랜치명)
+
+히스토리 영역(헤드영역)
+v1(해시코드)<--HEAD
+
+수정을 하면 이전의 파일을 해시코드를 참조함.
+커밋하면 v2 <--HEAD
+
+새로운 파일이 생성되면
+v1를 참고하고 있던 v2의 해시코드를 참조
+
+롤백 git reset --옵션 해시코드
+
+soft - 히스토리만 삭제(커밋 이전) 커밋할떄 메세지 입력 다시 하고 싶을때
+mixed - add 이전으로 (수정파일만 있음) 작업내용 수정 보통은 그냥 새로운 commit을 함
+hard - 전부 리셋 원격으로 푸시할때 강제 푸시
+
+여태까지 한 로그기록 git reflog
+
+로컬에 내 원격 주소 알려주기 origin <- 중앙저장소 브랜치
+git remote add origin https://github.com/jeajeawoo/git-Lee.git
+
+git ls-remote 원격 연결됐는지 확인
+
+내용 업로드 git push origin master
+
+파일 받는법
+맨처음 폴더에서 받기.
+git clone https://github.com/jeajeawoo/git-Lee.git . (디렉토리 그대로)
+
+이어하기
+git pull origin master

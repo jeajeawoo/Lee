@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+	</script>
+	<script>
+	$(document).ready(function(){
+
+		//clone 을 이용하여 db_list1에서 선택한 옵션을 db_list2에 복사하기
+		$("#bt1").click(function(){
+			//alert($(":selected").text())
+			$(":selected").clone(true).appendTo("#db_list2");
+
+		
+		});		
+		
+
+	
+	});
+/* $(document).ready(function() {
+	
+	$("#bt").click(function() {
+		
+		// 속성선택자 : selected, checked, disabled, focus
+		// 셀렉트에서 사용자가 선택한 옵션
+		// value, text
+		// val(), text()
+		var a = $(":selected").val();
+		var b = $(":selected").text();
+
+		alert(a);
+		alert(b);
+
+		});
+
+	});  */
+
+/* $(document).ready(function(){
+
+	//$(content).appendTo(selector)
+	$("button").click(function(){
+
+		$("p").clone(true).appendTo("div");
+		// 설정된 이벤트까지 복사
+		});
+
+		//p의 이벤트
+		$("p").click(function() {
+
+		$(this).css("fontSize","32px");
+		// 
+
+		});
+
+	});  */
+	</script>
+</head>
+<body>
+
+	<select id="db_list1">
+		<option value="1">자바</option>
+		<option value="2">오라클</option>
+		<option value="3">스프링</option>
+		<option value="4">jQuery</option>
+	</select>
+	<select id="db_list2">
+
+	</select>
+	<br />
+	<button id="bt1">복사하기</button>
+
+	
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<style>
+	div {
+		width:300px;
+		height:150px;
+		background-color:#FFFF00;
+		font-size:20px;
+	}
+	</style>
+    <script>
+	// 버튼을 클릭하면 첫번째 폼에서 체크된 value  값이  두번째 폼의 input에 순서대로 출력되도록
+ 
+
+
+
+function myFunction(){
+	for(var i =0; i<3; i++){	
+		//var bb = document.forms[1].elements[i]
+		//document.forms[1].elements[i].value=aa
+		if(document.forms[0].elements[i].checked){
+			document.forms[1].elements[i].innerHTML = document.forms[0].elements[i].value
+			
+			}
+	
+		}
+	}
+
+
+/* function crt() {
+	
+	// 버튼을 클릭하면 체크 안되어있으면 체크하고 되어있으면 해제
+
+	if(document.getElementById("test2").checked){
+
+		document.getElementById("test2").checked =false;
+	}else{
+		document.getElementById("test2").checked =true;
+	}
+	// 체크박스 또는 라디오 버튼의 체크 유무
+	// true(체크함), false
+
+	//document.getElementById("aaa").innerHTML = aa + "<br />";
+
+	//document.getElementById("aaa").innerHTML += bb;
+
+	}  */
+
+/* function crt() {
+	
+	var aa = document.forms[0].elements[0].value;
+	//첫번째 폼의 첫번째 입력양식 값
+
+	var bb = document.forms[1].elements[0].value;
+	
+	document.getElementById("aaa").innerHTML = aa + "<br />";
+
+	document.getElementById("aaa").innerHTML += bb ;
+
+	}  */
+
+
+  </script>
+</head>
+<body>
+<form id="myForm1" name="test" method="post" action="test.html">
+<input type="checkbox" id="ck1" value="치킨"> 치킨<br />
+<input type="checkbox" id="ck2" value="피자"> 피자<br />
+<input type="checkbox" id="ck3" value="족발"> 족발
+</form>
+<form id="myForm2" name="test" method="post" action="test.html">
+1. <input type="text" id="myText1"><br />
+2. <input type="text" id="myText2"><br />
+3. <input type="text" id="myText3">
+</form>
+<button onclick="myFunction()">버튼을 눌러보세용</button>
+</body>
+</html>

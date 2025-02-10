@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX2</title>
+    <script>
+		
+		var color = ["red", "green", "blue"];
+		
+function abc(){
+	for(var i=0; i<color.length; i++){
+		document.getElementsByTagName("h1")[i].style.backgroundColor=color[i];
+		 
+		
+	}
+	
+}	
+
+/* function aaa() {
+
+			var aaa = ["수박", "바나나", "복숭아"];
+
+			var ul = document.getElementById("myList");
+			
+			for (var i=0; i < aaa.length; i++){
+				//alert(x[i].innerText);
+
+				var li = document.createElement("li");
+				var txt = document.createTextNode(aaa[i]);
+				li.appendChild(txt);
+
+				ul.appendChild(li);
+			
+			}
+
+
+
+	}
+*/
+ /* function chColor(){
+	document.getElementById("aaa").style.color = "red";
+	//문서객체에서(HTML) id가 aaa인 요소를 찾아서 style속성 중 색상을 red로
+	var aa = document.getElementsByTagName("p");
+	
+		aa[i].style.color = "blue";
+	} */
+    </script>
+</head>
+<body>
+<h1>h1태그 1</h1>
+<h1>h1태그 2</h1>
+<h1>h1태그 3</h1>
+
+<button onclick="abc();">배열 색생을 배경 색상으로 변경</button>
+</body>
+</html>

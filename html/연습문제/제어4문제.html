@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+	</script>
+    <script>
+	$(document).ready(function(){
+	// 체크 박스에 체크 되어 있는 것의 value 와 
+	// 체크 박스 뒤에 있는  span의 text 를 이용하여\
+	// ul 에 li를 추가
+
+		$("button").click(function(){
+
+			var a = $(":checked").next().text()
+			alert(a)
+			var c = $(":checked").val();
+			
+			$("ul").append(a+"<li>"+c+"</li>")
+			
+		});
+
+	});
+
+
+/* $(document).ready(function(){
+
+	// attr,prop
+
+
+	$("button").click(function(){
+
+		var a = $(":checkbox").attr("checked");  //보이는값 그대로
+		var b = $(":checkbox").prop("checked");
+		$("div").html(a+"<br />" + b);
+	
+		});
+
+	}); */
+
+    </script>
+</head>
+<body>
+<h1>먹고 싶은거 담기</h1>
+<input type="radio" value="1000원" name="ck"  /> <span>치킨</span><br />
+<input type="radio" value="2000원" name="ck"  /> <span>피자</span><br />
+<input type="radio" value="3000원" name="ck"  /> <span>족발</span>
+
+<ul>
+</ul>
+
+<button>버튼을 눌러보세용</button>
+</body>
+</html>

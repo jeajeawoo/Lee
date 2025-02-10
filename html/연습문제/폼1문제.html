@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+    <script>
+		
+		var ary = ["변명 중에서도 가장 어리석은 변명은", "시간이 없어서", "by Thomas Alva Edison"];
+
+		// 버튼을 클릭하면 p의 글자는 배열의 요소를 순서대로
+		// 배경색상은 input의 value를 순서대로 적용
+
+/* function abc (){
+
+	var ary = ["변명 중에서도 가장 어리석은 변명은", "시간이 없어서", "by Thomas Alva Edison"];
+	for (var i=0; i<ary.length; i++){
+		var aa = document.getElementsByTagName("p");
+		aa[i].innerHTML=ary[i];
+		var bb = document.getElementsByTagName("input");
+		aa[i].style.backgroundColor=bb[i];
+		}
+
+	} */
+
+window.onload = function (){
+	document.getElementById("ccc").addEventListener("click", changetext);
+	document.getElementById("ccc").addEventListener("click", changeColor);
+	function changetext() {
+
+		var ary = ["변명 중에서도 가장 어리석은 변명은", "시간이 없어서", "by Thomas Alva Edison"];
+		for (var i=0; i<ary.length; i++){
+			var aa = document.getElementsByTagName("p");
+			aa[i].innerHTML=ary[i];
+			}
+		}
+	function changeColor(){
+		var ary = ["변명 중에서도 가장 어리석은 변명은", "시간이 없어서", "by Thomas Alva Edison"];
+		for(var i=0; i<ary.length; i++){		
+			var bb = document.forms[0].elements[i].value;
+			
+			var aa = document.getElementsByTagName("p");
+			aa[i].style.backgroundColor=bb;
+			
+			} 
+		
+		}
+	}
+
+
+
+/* window.onload = function() {
+
+	document.getElementById("ccc").addEventListener("click", changeColor);
+	document.getElementById("ccc").addEventListener("click", changeBack);
+	//동일한 이벤트에 다수의 핸들러 사용
+	function changeColor() {
+		document.getElementById("bbb").style.color = "red";
+		}
+
+	document.getElementById("bbb").addEventListener("mouseover", changeBack);
+	//마우스 올리면
+	function changeBack() {
+
+		document.getElementById("aaa").style.backgroundColor = "orange";
+		}
+
+	}; */
+
+/* function crt() {
+
+	// 셀렉트 접근
+
+	var sel = document.getElementById("test3");
+	// 사용자가 선택한 옵션의 value, text 
+	// 객체.selectedIndex
+	
+	var aa = sel.options[sel.selectedIndex].value;
+	var bb = sel.options[sel.selectedIndex].text;
+
+	document.getElementById("aaa").innerHTML = aa + bb;
+
+	} */
+/*		var color = ["red", "green", "blue"];
+		
+function abc(){
+	for(var i=0; i<color.length; i++){
+		document.getElementsByTagName("h1")[i].style.backgroundColor=color[i];
+		 
+		
+	}
+	
+} */	
+
+/* function abc(){
+	var food = ["apple", "mango", "banana"];
+	for(var i=0; i<food.length; i++){
+		var aa = document.getElementsByTagName("li");
+		
+	aa[i].innerHTML=food[i];}
+	}  */
+
+    </script>
+</head>
+<body>
+<form>
+<input type="text" value="yellow"><br />
+<input type="text" value="orange"><br />
+<input type="text" value="pink"><br />
+</form>
+
+<p></p>
+<p></p>
+<p></p>
+<button id="ccc">p의 배경색상을 변경해 볼까요?</button>
+<!--<button onclick="abc();">p의 배경색상을 변경해 볼까요?</button>-->
+</body>
+</html>

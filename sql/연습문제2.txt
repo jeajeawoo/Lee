@@ -1,0 +1,176 @@
+1) 이름이 '은지원' 인 사용자의 아이디, 주소, 상품명, 제조회사를 조회.
+
+select u.userID, u.addr, b.prodName, p.prodCom
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+join prodTbl as p
+on p.prodName=b.prodName
+where u.name='은지원';
+
+
+select u.userID, u.addr, b.prodName, p.prodCom
+from userTbl as u , buyTbl as b , prodTbl as p
+where u.userID=b.userID and b.prodName=p.prodName and u.name='은지원';
+
+2) 사용자 별로 '운동화' 를 구매한 사람들 중에서 총 구매금액이 50원 이상인 사용자 아이디, 이름, 총 구매금액을 조회하고 사용자 이름 오름차순으로 정렬
+
+select u.userID, u.name, sum(b.price*b.amount) as sum
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+where b.prodName='운동화'
+group by u.userID
+having sum>=50
+order by u.name asc;
+
+select u.userID, u.name, sum(b.price*b.amount) as sum
+from userTbl as u , buyTbl as b
+where u.userID=b.userID and b.prodName='운동화'
+group by u.userID
+having sum>=50
+order by u.name asc;
+
+3) 상품 별 총 구매금액이 1000원보다 큰 상품의 총 구매액, 상품명, 제조사 조회하고 총 구매금액 내림차순 정렬
+
+select p.prodName, p.prodCom ,sum(b.price*b.amount) as sum
+from prodTbl as p
+join buyTbl as b
+on p.prodName=b.prodName 
+group by p.prodName
+having sum>=1000
+order by sum desc;
+
+select p.prodName, p.prodCom , sum(b.price*b.amount) as sum
+from prodTbl as p , buyTbl as b
+where p.pordName=b.prodName
+group by p.prodName
+having sum>=1000
+order by sum desc;
+
+
+4) 사용자 별 구매횟수(count)가 3번 이상인 회원들의 아이디, 이름, 주소, 구매횟수를 조회
+
+select u.userID, u.name, u.addr, count(b.userID) as cnt
+from userTbl as u
+join buyTbl as b
+on u.userID = b.userID
+group by u.userID
+having cnt>=3;
+
+select u.userID, u.name, u.addr, count(b.userID) as cnt
+from userTbl as u , buyTbl as b
+where u.userID = b.userID
+group by u.userID
+having cnt>=3;
+
+5) 사용자 별 평균 구매금액이 100 에서 500 사이의 사용자의 평균 구매액, 아이디, 이름, 주소 조회하시오
+평균 구매액이 큰 금액부터 정렬
+
+select u.userID, u.name, u.addr, avg(b.price*b.amount) as avg
+from userTbl as u
+join buyTbl as b
+on u.userID= b.userID
+group by u.userID
+having avg between 100 and 500
+order by avg desc;
+
+select u.userID, u.name, u.addr, avg(b.price*b.amount) as avg
+from userTbl as u , buyTbl as b
+where u.userID= b.userID
+group by u.userID
+having avg between 100 and 500
+order by avg desc;
+
+6) 총 구매금액이 1000원보다 큰 상품의 총 구매액, 상품명, 제조사 조회
+
+select p.prodName, p.prodCom, sum(b.price*b.amount) as sum
+from prodTbl as p
+join buyTbl as b
+on p.prodName=b.prodName
+group by p.prodName
+having sum>=1000;
+
+select p.prodName, p.prodCom, sum(b.price*b.amount) as sum
+from prodTbl as p , buyTbl as b
+where p.prodName=b.prodName
+group by p.prodName
+having sum>=1000;
+
+7) 상품별(prodName) 물품의 재고 수량이 20이상인 상품의 상품명, 재고수량, 총 합계금액, 평균금액을 조회하시오
+
+select p.prodName, p.prodStock, sum(b.price*b.amount) , avg(b.price*b.amount)
+from prodTbl as p
+join buyTbl as b
+on p.prodName=b.prodName
+where p.prodStock>=20
+group by p.prodName;
+
+select p.prodName, p.prodStock, sum(b.price*b.amount), avg(b.price*b.amount)
+from prodTbl as p , buyTbl as b
+where p.prodName=b.prodName and p.prodStock>=20;
+group by p.prodName
+
+8) 지역별로 주문한 상품의 지역, 총 합계금액을 조회하고 지역 오름차순 정렬
+
+select u.addr , sum(b.price*b.amount)
+from userTbl as u , buyTbl as b
+where u.userID=b.userID
+group by u.addr
+order by u.addr asc;
+
+select u.addr , sum(b.price*b.amount)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+group by u.addr
+order by u.addr asc;
+
+
+
+
+create table 고객 (
+고객번호 varchar(16)  not null,
+이름    varchar(50)  not null,
+비밀번호 varchar(256) not null,
+primary key(고객번호)
+)
+
+create table  주문 (
+주문번호   varchar(16)   not null,
+고객번호   varchar(16)   not null,
+주문일    varchar(8)    not null,
+주문가격   decimal(15,2) not null,
+배송도시   varchar(256)  not null,
+배송완료일 varchar(8),
+결제금액   varchar(8),
+할인금액   decimal(15,2) not null,
+적립포인트 decimal(15,2) not null,
+primary key(주문번호),
+foreign key(고객번호) references  고객(고객번호)
+)
+
+insert into 고객 values
+('c0001', '홍길동', 'abcd1234'),
+('c0002', '양바른', 'ybl1234'),
+('c0003', '유코식', 'uu1234'),
+('c0004', '김구', 'pass1234'),
+('c0005', '신사임당', 'pass1234');
+
+insert into 주문(주문번호, 고객번호, 주문일, 주문가격, 할인금액, 적립포인트) values
+('o1001', 'c0001', '20211201', 10000,100, 10),
+('o1002', 'c0001', '20211203', 4500,45, 4),
+('o1003', 'c0004', '20211207', 100000,100, 10),
+('o1004', 'c0003', '20211207', 55000,550, 55),
+('o1005', 'c0002', '20211217', 85000,850, 85),
+('o1006', 'c0002', '20211218', 23000,230, 23),
+('o1007', 'c0004', '20211221', 5000,50, 5),
+('o1008', 'c0001', '20211222', 8300,83, 8),
+('o1009', 'c0002', '20211225', 45000,450, 4),
+('o1010', 'c0003', '20211231', 9000,90, 9);
+
+select 고객.이름,
+(select count(1) from 주문 where 고객.고객번호=주문.고객번호) as 주문횟수
+from 고객;
+
+start transaction

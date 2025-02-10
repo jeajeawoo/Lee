@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+
+/*function Student(stdname, age, addr, kor) {
+
+this.stdname = stdname;
+this.age = age;
+this.addr = addr;
+this.kor = kor;
+
+this.getAvg = function() {
+	var avg =  (this.kor *0.05)+this.kor;
+	return avg;
+}
+this.getYeer = function(){
+	var yeer = 2024-this.age;
+	return yeer;
+}
+}
+var std1 = new Student("손흥민", 2002, "jinju", 3000);
+
+var avg1 = std1.getAvg();
+var yeer1 = std1.getYeer();
+document.write(std1.stdname+"의 나이"+yeer1 + " 연봉인상은 "+ avg1); */
+
+ function Employee(empa,empb,empc,empd) {
+	this.empa = empa;
+	this.empb = empb;
+	this.empc = empc;
+	this.empd = empd;
+
+this.getYeer = function(){
+	var yeer = 2024-this.empb;
+	return yeer;
+	}
+this.getMoney = function(){
+	var money = (this.empd *0.05)+this.empd
+	return money;
+	}
+}
+var emp1 = new Employee("손흥민", 2002, "영업부", 3000);
+var yeer1 = emp1.getYeer();
+var money1 = emp1.getMoney();
+document.write(emp1.empa+"의 나이"+yeer1 + " 연봉인상은 "+ money1); 
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+/* function Member(id1,pwrd,nam,addr){
+	this.id1 = id1
+	this.pwrd = pwrd
+	this.nam = nam
+	this.addr = addr
+
+	//this.getId1 =function(){
+	this.printName=function(){
+		//var uid =prompt("아이디를 입력","");
+		if (uid == this.id1){
+			alert("회원입니다")
+		}
+		else {
+		alert("회원가입 하세요")
+		}
+	}	
+
+var men=new Member("test","1234","손흥민","영국");
+var uid =prompt("아이디를 입력","");
+var std2=new Member("aaa","","","");
+
+men.printName();
+*/
+
+function Member(id1,pwrd,nam,addr){
+	this.id1 = id1
+	this.pwrd = pwrd
+	this.nam = nam
+	this.addr = addr
+	this.getId = function(){
+		var uid=prompt("","");
+		if (uid==this.id1){
+			alert("회원입니다.");
+			}
+		else{
+			alert("회원이 아닙니다.");
+			}		
+		}
+	}
+var men=new Member("test","1234","손흥민","영국");
+men.getId();
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
+

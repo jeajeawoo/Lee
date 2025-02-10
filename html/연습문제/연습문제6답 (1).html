@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<style>
+		td {
+		 border: 1px solid #333333;
+		 width: 50px;
+		 height: 50px;
+		 text-align: center;
+		}
+	</style>
+    <script>
+
+		function makeTable() {
+
+			var tableTag = document.getElementById("aaa");
+
+			var num = 1;
+
+			for(var i=0; i <3; i++) {
+
+				var trTag = document.createElement("tr");
+				
+				for(var j=0; j <4; j++) {
+
+					var tdTag = document.createElement("td");
+
+					var node = document.createTextNode(num);
+					// 텍스트 생성
+
+					tdTag.appendChild(node);
+					// 요소(태그)에 텍스트 노드를 연결
+			
+					trTag.appendChild(tdTag);
+					num++;
+				}
+
+			tableTag.appendChild(trTag);
+				
+			}
+			
+		}
+
+    </script>
+</head>
+<body>
+
+<table id="aaa">
+
+</table>
+<button onclick="makeTable();">테이블 만들기</button>
+
+</body>
+</html>

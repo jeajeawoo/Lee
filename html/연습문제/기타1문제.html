@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	ul li { list-style-type:none; }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var aa = " ";
+			// 버튼을 클릭하면 ol의 li 의 text를 각각 누적으로 연결하여 ul의 li 로 생성
+			$("button").click(function(){
+
+				$("ol").children().each(function(i,a){
+					
+					var text = $(this).text();
+					
+					alert(aa+=text)
+					$("ul").append("<li>"+(aa+=text)+"</li>");
+
+				});				
+			
+			});
+
+		});  
+
+	
+/*	$("button").click(function(){
+
+		$("li").each(function(i,a){		
+		alert($("li").eq(i).text());
+		//alert($("li").eq(1).text());
+		//alert($("li").eq(2).text()); 
+		//alert(a.tagName)
+		 alert($(this).text())
+			
+			var text =$(this).text()
+			$("ul").append("<li>"+text+"</li>");
+			});
+		});
+
+	}); */
+	</script>
+</head>
+<body>
+
+<button>누적으로 출력하기</button>
+
+<ol>
+  <li>믹스커피</li>
+  <li>라떼</li>
+  <li>아샷추</li>
+</ol>
+
+<ul>
+</ul>
+</body>
+</html>

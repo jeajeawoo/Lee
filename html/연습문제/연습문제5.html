@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX5</title>
+    <script>
+
+function aaa(){
+	var you = prompt("","")
+	var aa = document.createElement("li");
+	var bb = document.createTextNode(you);
+	aa.appendChild(bb);
+	document.getElementById("myList").appendChild(aa)
+
+	}
+
+
+
+
+/* function crt() {
+
+	var ol = document.createElement("ol");
+	// <ol></ol>
+
+
+	for(var cnt=0; cnt<3; cnt++) {
+
+		var li = document.createElement("li");
+		// <li><li>
+
+		var txt = document.createTextNode("목록");
+		// 목록
+
+		li.appendChild(txt);
+
+		ol.appendChild(li);
+
+
+	}
+	// 최종적으로 div 에 연결하여 출력
+
+	document.getElementById("aaa").appendChild(ol);
+
+}
+*/
+    </script>
+</head>
+<body>
+
+<ul id="myList">
+
+</ul>
+
+<button onclick="aaa();">클릭하세요.</button>
+</body>
+</html>

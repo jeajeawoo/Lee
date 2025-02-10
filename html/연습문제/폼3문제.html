@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<style>
+	div {
+		width:500px;
+		height:150px;
+		background-color:#FFFF00;
+		font-size:20px;
+	}
+	</style>
+    <script>
+	// 버튼을 클릭하면 사용자가 선택한 자동차의 이름과 가격이 ul 에 추가되도록
+
+
+function myFunction(){
+
+	var sel = document.getElementById("car");
+	var aa = sel.options[sel.selectedIndex].value;
+	var bb = sel.options[sel.selectedIndex].text;
+	var li = document.createElement("li");
+	var txt = document.createTextNode(aa+bb)
+	li.appendChild(txt);	
+	myList.appendChild(li);
+	
+	document.getElementsByTagName("li").innerHTML=txt;
+		
+	}
+
+// var txt = document.createTextNode("네이버");
+/* function crt() {
+
+	// 셀렉트 접근
+
+	var sel = document.getElementById("test3");
+	// 사용자가 선택한 옵션의 value, text 
+	// 객체.selectedIndex
+	
+	var aa = sel.options[sel.selectedIndex].value;
+	var bb = sel.options[sel.selectedIndex].text;
+
+	document.getElementById("aaa").innerHTML = aa + bb;
+
+	} */
+    </script>
+</head>
+<body>
+
+<select id="car">
+	<option value="100만원">아우디</option>
+	<option value="200만원">벤틀리</option>
+	<option value="300만원">뉴비틀</option>
+	<option value="400만원">미니쿠페</option>
+</select>
+<button onclick="myFunction()">버튼을 눌러보세용</button>
+제가 사고싶은 차종은<br />
+<ul id="myList">
+
+</ul>
+</body>
+</html>

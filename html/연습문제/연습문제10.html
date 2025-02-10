@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+	</script>
+	<script>
+	$(document).ready(function(){
+
+	// li 를 클릭하면 클릭한 li를 ul에 추가
+	// 클릭한 li는 삭제 합니다.
+		$("li").on("click",abc);
+			function abc(){
+				$(this).appendTo("ul")
+			}
+				
+			
+		
+
+		
+	});
+	</script>
+</head>
+<body>
+
+	<ol>
+		<li>믹스커피</li>
+		<li>밀크티</li>
+		<li>얼죽아</li>
+		<li>요아정</li>
+		<li>아샷추</li>
+	</ol>
+
+	<ul>
+	</ul>
+</body>
+</html>

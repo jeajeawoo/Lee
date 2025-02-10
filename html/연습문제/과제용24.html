@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+
+
+
+
+/* var text = 1;
+
+for(var i=1; i<=5; i++);{
+var aa = Math.floor(Math.random() * 45)+1; +i
+	text=aa;
+	}
+document.write(text); */
+
+/*let text =0;
+
+for (let i = 0; i < 6; i++) {
+  var aa =(Math.floor(Math.random() * 45)+1);
+  text += aa+",";
+	if(text.indexOf(aa)==-1){
+	text.push(aa);
+	text++;
+	}
+}
+
+
+document.write(text); */
+
+/* var arr = new Array();
+var a = 0;
+while(a<6){
+	var num= Math.floor(Math.random() * 45)+1;
+	if(arr.indexOf(num) == -1{//arr.indexOf(num)==-1{
+		arr.push(num);
+		a++
+	}
+}
+document.write(arr.toString) */
+
+	var arr = new Array();
+
+	var ct = 0;
+
+	while(ct<6) {
+
+		var num = Math.ceil((Math.random())*100);
+
+		// 배열에 등록된 값이 아니면 배열에 등록
+		if(arr.indexOf(num) == -1 && num <=45 ) {
+			arr.push(num);
+			ct++;
+		}
+
+	}
+	document.write("오늘의 로또 번호는 "+arr.toString()+" 입니다");
+
+
+	
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
+

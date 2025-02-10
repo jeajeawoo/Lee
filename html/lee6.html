@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+									// 자주 쓰이는 함수 : alert()==>내장함수 , 
+									// 1. 함수 선언 => function 함수명(){기능들,, } 2. 함수 호출 =>함수명():
+/* function abc(){							// funtion 함수명(){ } ==> 사용자 정의 함수
+	alert("hello");
+
+}									//함수를 호출할때만 해당 함수의 기능을 실행
+*/	
+									// 함수 기능에서 필요한 변수 : 매개변수 => funtion 함수명(매개변수,,,){ }
+/* function abc(a,b) {
+	//var a;
+	//var b;
+	var num = a+b;
+	alert(num)
+}
+									//매개 변수가 있는 함수를 호출할 경우 매개 변수에 들어갈 값을 입력 : 인수
+abc(10,5) */
+									//인수가 선언된 매개 변수 보다 많을 경우 나머지는 버림 
+									//인수가 선언된 매개 변수 보다 적을 경우 에러 발생
+									//var abc=prompt() => 리턴밸류
+/* function abc(a,b) {
+	var sum = a+b;	
+	return sum;
+}
+var aaa=abc(10,5);
+alert(aaa) */ 
+
+									//숫자만큼 글자를 반복해서 출력 abc("hello",3); ==>hello를 3번 출력
+/* function abc(str,num) {
+	for(var sum =1; sum<=num; sum++){
+		alert(str);
+	}
+}
+abc("hello",3); */
+//<button onclick="abc('hello',3);">클릭</button> 
+									//사용자로  입력받은  값이 홀수인지 짝수인지 출력하는 함수
+/* function abc(num){
+	if(num % 2 == 1){
+	alert("홀수");}
+	else{alert("짝수");
+	}
+}
+var aaa = Number(prompt("",""))
+abc(aaa); */
+
+
+/* function abc(){
+	var aaa = Number(prompt("",""));
+	if(aaa % 2 == 1) {
+	alert("홀수");
+	}else{
+	alert("짝수");
+	}
+}
+
+abc();  
+*/
+									//매개변수를 배열로
+
+function getArray(array) {
+	for(var i=0; i<array.length;i++) {
+		alert(array[i]);
+	}
+}
+var ary = [100, 200, 300];
+
+getArray(ary); 
+				
+									//리턴 값 배열
+									//return 을 만나면 함수를 호출한 곳으로 흐름이 이동하고 return 이후의 문장을 실행 안함
+/* function setArray(){
+	var ary=[100,200,300];
+	return ary;
+	//리턴 이후는 실행 안됌
+	alert("hello");
+}
+var aaa = setArray(); //배열을 반환
+
+alert(aaa[2]); */
+
+									// 지역 변수 : 함수 내에서 선언하고 초기화
+									// 전역 변수 : 함수 밖에서 선언하고 초기화 전체 코드에서 유효
+/* function aaa(){
+	var car="volvo";						// 함수 안에서만 접근 가능, 함수가  종료되면 변수가 해제, 함수 밖에선 접근 불가 
+	document.write(car);
+	document.write("<br/>");			
+}	
+aaa() */
+
+/* var car="bmw";							
+function aaa(){
+	document.write(car);
+	document.write("<br/>")
+}
+aaa() */
+
+/* var car="bmw";							
+function aaa(){
+	var car="volvo";	//재할당
+	document.write(car);
+	document.write("<br/>")
+}
+aaa()
+document.write(car); */
+
+									//함수를  호출할때 마다 변수를 출력 변수가 1씩 
+/* function aaa(){
+	alert(cnt);							//전역 변수 활용
+	cnt++;
+}
+var cnt = 1;	
+aaa() 
+aaa()  */
+
+									//var 변수와 호이스팅 : 융통성 있는 느낌 문법이 안 맞아도 에러가 안남
+/* bb = 100;
+
+document.write(bb);
+
+var bb; */
+
+									//var : 재선언, 재할당, 호이스팅 가능
+
+/* var aa= "hello";
+document.write(aa);
+var aa="javascript";
+document.write(aa); */
+
+									//const 상수: 재선언, 재할당 불가
+/* const aa= "hello";
+document.write(aa);
+const aa="javascript";
+document.write(aa); */ 						//고정된 변수 재할당이 필요 없을때 const 활용
+//에러
+
+									//let : 재선언 불가 , 재할당 가능
+/* let aa = "hello";
+let aa = "javascript";							//코딩실수나 공동작업에서 이미 선언한 변수를 덮어쓰는 오류를 방지.
+document.write(aa); */						
+//에러
+
+									//내장 함수는 setTimeout(function, milliseconds) 일정시간 뒤에 함수를 실행
+/* function aa(){
+	document.write("3초뒤에");
+}
+setTimeout(aa,3000); */ 						//선언적 함수( 명시적 함수) 재사용성이 높은게 특징
+
+//setTimeout(function(){document.write("3초뒤에")},3000);		//즉시 실행 함수 단발성
+
+									//익명함수 : 이름이 없음 , 변수에 할당
+/* var aaa=function(){alert("hello");};
+aaa(); */					
+
+	
+
+
+
+
+</script>
+</head>
+<body>
+<button onclick="abc(10,5);">클릭</button>				<!-- 이벤트( 사용자나 브라우저 어떤 동작을 했을때 수행)-->
+
+</body>
+</html>
+

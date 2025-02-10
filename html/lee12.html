@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+.aaa {color:red;}
+.bbb {background-color:yellow;}
+
+</style>
+<script>
+
+/* $(document).ready(function(){
+
+	// text, html, value 가져오기
+	$("button").click(function(){
+
+		$("h1").text("변경 text"));
+
+		$("div").html("<h2>변경 html</h2>");
+		// 첫번째 요소만 반환 , 변경은 모두 다
+
+		$(":text").val("이순신:);
+
+		// a 태그의 href 속성, 글자 변경
+
+		$("[href]").attr("href", "http://www.google.com");
+		$("[href]").text("구글");
+
+		});
+
+	});  */
+
+/* $(document).ready(function(){
+
+	// attr,prop
+	$("button").click(function(){
+
+		var a = $("[href]").attr("href");  //보이는값 그대로
+		var b = $("[href]").prop("href");
+		$("div").html(a+"<br />" + decodeURIComponent(b));
+		
+
+		});
+
+	}); */
+/* $(document).ready(function(){
+
+	// attr,prop
+
+
+	$("button").click(function(){
+
+		var a = $(":checkbox").attr("checked");  //보이는값 그대로
+		var b = $(":checkbox").prop("checked");
+		$("div").html(a+"<br />" + b);
+	
+		});
+
+	}); */
+
+/* $(document).ready(function(){
+	//prepend() - 컨텐츠를 선택된 요소(태그) "내부"의 앞 부분에서 추가앞
+	//append() - 컨텐츠를 선택된 요소(태그) "내부"의 끝 부분에서 추가
+	$("button").click(function(){
+
+		$("p").append("p 태그에 글자 추가");
+		$("ol").append("<li>글자 추가</li>");
+
+		});
+
+	});  */
+
+/* $(document).ready(function(){
+	//before() - 선택한 요소 "외부"  컨텐츠 추가
+	//after() - 선택한 요소 "외부" 끝 컨텐츠 추가
+	$("button").click(function(){
+
+		$("p").after("p 태그에 글자 추가");
+		$("ol").after("<li>글자 추가</li>");
+
+		});
+
+	}); */
+
+/* $(document).ready(function(){
+
+	//$(selector).append(function(index))
+	$("button").click(function(){
+
+		$("p").append(function(i,h){
+		// i ==>append 하고자하는 선택자의 인덱스
+		// h ==>append 하고자하는 선택자의 html 
+			return //"추가되는요소"
+			
+			});
+		});
+
+	});  */
+
+/* $(document).ready(function(){
+
+	//remove() - 선택한 요소를 포함하여 자식요소도 있으면 삭제
+	$("button").click(function(){
+
+		$("p").remove();
+		$("ul > li:last").remove();
+		});
+
+	});  */
+
+/* $(document).ready(function(){
+
+	//empty() - 선택한 요소의 자식 요소만 삭제,매개변수없음
+	$("button").click(function(){
+
+		$("p").empty();
+		});
+
+	});	*/
+
+/* $(document).ready(function(){
+
+	//$(selector).addClass(classname,function(index))
+	$("button").click(function(){
+
+		$("p").addClass("bbb");
+		$("li").addClass("aaa");
+		});
+	
+	});  */
+
+$(document).ready(function(){
+
+	//$(content).appendTo(selector)
+	$("button").click(function(){
+
+		$("h1").appendTo("p");
+		//요소에 선태자가 올 경우 이동하기
+		$("<li>추가요소</li>").appendTo("ol").addClass("bbb");
+		// li 를 ul 추가한 다음 li에 bbb 클래스 추가 
+		});
+
+	});
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<h1>text()1</h1>
+<h1>text()2</h1>
+
+<div>
+<span>html()1</span>
+</div>
+
+<div>
+<span>html()2</span>
+</div>
+
+<a href="http://www.naver.com">네이버</a>
+
+<input type="text" value="홍길동">
+
+<button>클릭하세요</button>
+
+<a href="#aa">네이버</a><br/>
+<input type="checkbox" value="apple" checked="ckecked">
+
+
+<p>단락태그1<!--여기--></p>
+<p>단락태그2<!--여기--></p>
+
+<ol>
+<li>item1</li>
+<li>item2</li>
+<li>item3</li>
+<!--여기-->
+</ol>
+
+
+</body>
+</html>
+

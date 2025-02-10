@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<style>
+	#abc {width:500px; height:100px; background-color:yellow; color:red; font-size:32px;}
+	button {font-size:20px; }
+	input[type="text"] {width:50px; height:23px;}
+	</style>
+
+    <script>
+
+/* function changeText(){
+
+	var txt1 = document.getElementById("aa").value;
+	var txt2 = document.getElementById("bb").value;
+	document.getElementById("abc").innerHTML =txt1 +","+ txt2;
+	
+	} 
+function aaa(){
+	var kk = txt1+txt2;
+	document.getElementById("abc").innerHTML = txt1 +","+txt2+kk
+	} */
+
+window.onload = function(){
+	
+	document.getElementById("aaa").addEventListener("click", ejgkrl);
+	document.getElementById("aa").addEventListener("keyup", changeText);
+	document.getElementById("bb").addEventListener("keyup", changeText);
+	document.getElementById("bbb").addEventListener("click", qorl);
+	document.getElementById("ccc").addEventListener("click", rhqgkrl);
+	document.getElementById("ddd").addEventListener("click", sksnrl);
+	function changeText(){
+		var txt1 = document.getElementById("aa").value;
+		var txt2 = document.getElementById("bb").value;
+		document.getElementById("abc").innerHTML =txt1 +","+ txt2;
+		
+		}
+	function ejgkrl(){
+		var txt1 = Number(document.getElementById("aa").value);
+		var txt2 = Number(document.getElementById("bb").value);
+		
+		var ejgk = txt1+txt2
+		document.getElementById("abc").innerHTML =txt1 +"+"+ txt2+ "="+ejgk
+			
+		}
+		function qorl(){
+		var txt1 = Number(document.getElementById("aa").value);
+		var txt2 = Number(document.getElementById("bb").value);
+		
+		var ejgk = txt1-txt2
+		document.getElementById("abc").innerHTML =txt1 +"-"+ txt2+ "="+ejgk
+			
+		}
+		function rhqgkrl(){
+		var txt1 = Number(document.getElementById("aa").value);
+		var txt2 = Number(document.getElementById("bb").value);
+		
+		var ejgk = txt1*txt2
+		document.getElementById("abc").innerHTML =txt1 +"*"+ txt2+ "="+ejgk
+			
+		}
+		function sksnrl(){
+		var txt1 = Number(document.getElementById("aa").value);
+		var txt2 = Number(document.getElementById("bb").value);
+		
+		var ejgk = txt1/txt2
+		document.getElementById("abc").innerHTML =txt1 +"/"+ txt2+ "="+ejgk
+			
+		}
+		
+	}
+
+
+
+
+
+
+
+
+
+/* window.onload = function() {
+
+	document.getElementById("ccc").addEventListener("click", changeColor);
+	document.getElementById("ccc").addEventListener("click", changeBack);
+	//동일한 이벤트에 다수의 핸들러 사용
+	function changeColor() {
+		document.getElementById("bbb").style.color = "red";
+		}
+
+	document.getElementById("bbb").addEventListener("mouseover", changeBack);
+	//마우스 올리면
+	function changeBack() {
+
+		document.getElementById("aaa").style.backgroundColor = "orange";
+		}
+
+	}; */
+    </script>
+</head>
+<body>
+<div id="abc">
+</div>
+<input type="text" id="aa">
+<input type="text" id="bb">
+<button id="aaa">+</button> <button id="bbb">-</button> <button id="ccc">x</button> <button id="ddd">/</button>
+
+</body>
+</html>

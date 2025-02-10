@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<title>Page Title</title>
+<style>
+.tab-wrap {
+	width:400px;
+	height: 150px;
+	background-color:#fff;
+	}
+input {
+	display:none;
+	}
+.tab-menu {
+	display:flex;
+	font-size:18px;
+	padding:5px 10px;
+	height:40px;
+	}
+.tab-menu>label{
+	margin-right:20px;
+	cursor: pointer;
+	}
+.box {
+	padding:10px;
+	width: 100%;
+	height: 110px;
+	display: none;
+	}
+.box_1 {
+	background-color:lightblue;
+	}
+.box_2 {
+	background-color:lightcyan;
+	}
+#tab_1:checked~.tab-menu_1 {
+	font-weight: 900;
+	}
+#tab_2:checked~.tab-menu_2 {
+	font-weight: 900;
+	}
+#tab_1:checked~.box_1 {
+	display: block;
+	}
+#tab_2:checked~.box_2 {
+	display: block;
+	}	
+</style>
+<script>
+
+</script>
+</head>
+<body>
+<div class="tab-wrap">
+	<input type="radio" name="tab" id="tab_1" checked>
+	<input type="radio" name="tab" id="tab_2">
+	<div class="tab-menu">
+		<label for="tab_1" class="menu_1">탭1</label>
+		<label for="tab_2" class="menu_2">탭2</label>
+	</div>
+	<div class="box box_1">탭내용</div>
+	<div class="box box_2">탭내용</div>
+</div>
+</body>
+</html>
+

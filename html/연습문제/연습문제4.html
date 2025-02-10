@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX4</title>
+	<style>
+	li {color:green}
+	</style>
+    <script>
+
+function abc() {
+		var aa = document.getElementsByTagName("p");
+		var bb = document.getElementsByTagName("li");
+
+		for(var i =0; i < aa.length; i++) {
+
+			bb[i].innerHTML =aa[i].innerHTML;
+
+
+		}
+
+
+	}
+
+/* function abc() {
+
+	var ol = document.createElement("ol");
+	// <ol></ol>
+
+
+	for(var cnt=1; cnt<=5; cnt++) {
+
+		var li = document.createElement("li");
+		// <li><li>
+
+		var txt = document.createTextNode("목록");
+		// 목록
+
+		li.appendChild(txt);
+
+		ol.appendChild(li);
+
+
+	}
+	// 최종적으로 div 에 연결하여 출력
+
+	document.getElementById("aaa").appendChild(ol);
+
+} */
+
+    </script>
+</head>
+<body>
+
+<p>수박</p>
+<p>복숭아</p>
+<p>포도</p>
+
+<ol>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+
+<button onclick="abc();">과일을 옮기세요</button>
+</body>
+</html>

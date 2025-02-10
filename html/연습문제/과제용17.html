@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ table, td {
+border:1px solid black;
+text-align:center
+} 
+</style>
+<script>
+document.write("<table>");
+var td1 = prompt("행","")
+var tr1 = prompt("열","")
+var num1 =1;
+for (var td2=1; td2<=td1; td2++) {
+	document.write("<tr>");
+	for(var tr2=1; tr2<=tr1; tr2++){		
+	document.write("<td>"+num1+"</td>"); 
+	num1++;
+	}
+	document.write("</tr>")
+}
+document.write("</tr>");
+
+document.write("</table>"); 
+
+/* document.write("<table>");
+for (var i=1; i<=3; i++){
+	document.write("<tr>");
+	for(var j=1; j<=5; j++){
+		document.write("<td>"+i+"행"+j+"열</td>");
+	}	
+	document.write("</tr>")
+}
+document.write("</tr>");
+
+document.write("</table>"); */
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
+

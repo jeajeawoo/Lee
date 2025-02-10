@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+
+
+function abcd() {
+	var a = prompt("이름","")
+	var b = Number(prompt("국어",""))
+	var c = Number(prompt("영어",""))	
+	var d = Number(prompt("수학",""))
+	var e = 3;
+		document.write(a+"의 ")
+		document.write("평균점수는 "+(b+c+d)/e+"점");
+			if((b+c+d)/e >= 90) {document.write(" A학점");}
+			else if ((b+c+d)/e >= 80) {document.write(" B학점");}
+			else if ((b+c+d)/e >= 70) {document.write(" C학점");}
+			else {document.write(" F학점");}
+
+}
+
+</script>
+</head>
+<body>
+<button onclick="abcd();">점수입력</button>
+
+</body>
+</html>
+

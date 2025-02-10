@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+/* var sday = new Date(2024, 11, 31);
+
+var today = new Date();
+
+var aa = today.getTime()/(1000*60*60*24);
+
+var bb = sday.getTime()/(1000*60*60*24);
+document.write((bb-aa)+"일");
+document.write("<br/>")
+document.write(Math.ceil((bb-aa)+"일")); 
+
+var term = dday.getTime() - tday.getTime(); 
+
+term =  Math.ceil(term / (1000 * 60 * 60 * 24));*/
+
+	// 기준날짜 - 오늘날짜
+	var y = Number(prompt("년도입력", ""));
+	var m = Number(prompt("월입력", ""));
+	var d = Number(prompt("일입력", ""));
+	
+	var tday = new Date();
+	var dday = new Date(y, m-1, d);
+
+	var term = dday.getTime() - tday.getTime();
+
+	term =  Math.ceil(term / (1000 * 60 * 60 * 24));
+
+	document.write(dday.getFullYear() + "년 ");
+	document.write(dday.getMonth()+1 + "월 ");
+	document.write(dday.getDate() + "일까지 ");
+	document.write(term + "일 남았습니다.");
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
+

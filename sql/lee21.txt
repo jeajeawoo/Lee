@@ -1,0 +1,63 @@
+mongo
+
+컬렉션 생성 
+db.createCollection("컬렉션명")
+
+show collections
+
+컬럼과 레코드생성
+db.컬렉션명.insertOne({키:값})
+db.aaa.insertOne({name:"홍길동",addr:"진주"})
+db.aaa.insertOne({age:30,school:"서울IT"})
+
+여러개 한번에 생성
+db.컬렉션명.insertMany({객체},{},{})
+
+
+db.컬렉션명.find({조건},{필드:true or false(1 or 0)})
+db.컬렉션명.find({},{_id:0})
+db.컬렉션명.find({name:"홍길동"},{_id:0})
+
+---and
+db.컬렉션명.find({조건,조건},{_id:0}) 
+db.컬렉션명.find({age:30,addr:"진주"},{_id:0}) 
+
+---or
+db.컬렉션명.find({$or:[{조건},{조건}]},{출력할 필드들})
+db.컬렉션명.find({$or:[{addr:"진주"},{addr:"서울"}]},{_id:0})
+
+$eq =
+$gt >
+$gte >=
+$in 
+$lt <
+$lte <=
+$ne 
+
+age가 30이상인 데이터
+db.aaa.find({age:{$gte:30}},{_id:0})
+age가 30이상이고 addr 경기인 데이터
+db.aaa.find({age:{$gte:30},addr:"경기"},{_id:0})
+age가 30이거나 addr이 경기인 데이터
+db.aaa.find({$or:[{age:{$gte:30}},{addr:"경기"}]},{_id:0})
+
+
+db.컬렉션명.find().sort({필드:1 or -1}) 오름차순=1 내림차순=-1
+
+수정
+db.aaa.updateOne({조건},{$set:업데이트필드들})
+age가 30인 데이터를 age를 35로 수정
+db.aaa.updateMany({age:30},{$set:{age:35}})
+age가 35인 데이터를 name:김시민, addr:진주
+db.aaa.updateMany({age:35},{$set:{name:"김시민",addr:"진주"}})
+
+
+제거
+-- 모든 문서 삭제
+db.aaa.deleteMany({})
+
+db.aaa.deleteOne({조건})
+
+
+
+

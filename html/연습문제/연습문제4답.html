@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<style>
+	li {color:green}
+	</style>
+    <script>
+
+
+	function abc() {
+		var x = document.getElementsByTagName("p");
+		var x2 = document.getElementsByTagName("li");
+
+		for(var i =0; i < x.length; i++) {
+
+			x2[i].innerHTML = x[i].innerHTML;
+
+
+		}
+
+
+	}
+    </script>
+</head>
+<body>
+
+<p>수박</p>
+<p>복숭아</p>
+<p>포도</p>
+
+<ol>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+
+<button onclick="abc();">과일을 옮기세요</button>
+</body>
+</html>

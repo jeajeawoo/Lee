@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>돔돔낚시</title>
+    <style>
+	li{
+	list-style-type:none;
+	}
+	a{
+	text-decoration: none;
+	color: inherit;
+	}
+	body { 
+		width:1000px;
+		margin: 0 auto; 
+	}
+	#header {
+		height:150px;
+		margin: 10px;
+		display: flex;
+	}
+
+	.header_img img {
+		width: 100px;
+		height: 100px;
+		margin: 20px;
+	}
+
+	#navigation {
+		height:60px;
+		background-color:#0093ff;
+		border:none;	
+	}
+	nav{
+		position:relative;
+		z-index: 5;
+		top:10px;
+	}
+	nav>ul{
+		display:flex;
+	}
+	nav>ul>li>a{
+		display: block;
+		width: 120px;
+		background-color: #0093ff;
+		text-align: center;
+		font-weight: bold;
+		color: #fff;
+		padding: 10px;
+		text-decoration: none;
+	}
+	nav>ul>li:hover>a{
+		color: #fff;
+		background-color: #0000ce;
+	}
+	.sub{
+		display: none;
+	}
+
+	.sub li a {
+		background-color: #0093ff;
+		display: block;
+		padding: 6px;
+		text-align: center;
+		font-size: 14px;
+		text-decoration: none;
+		color: #fff;
+	}
+	.sub li a:hover{
+		background: #0000ce
+	}	
+
+/* 검색창 시작 */
+	#search-box {
+		width:400px;
+		height: 45px;
+		background:white;
+		border-radius:40px;
+		padding:10px;
+		border:1px solid #0093ff;
+		position:relative;
+		left:100px;
+		top: 40px;
+		
+	}
+
+	#search-text {
+		border: none;
+		background: none;
+		outline: none;
+		float: left;
+		padding: 0px;
+		color: black;
+		font-size: 16px;
+		line-height: 50px;
+		width: 200px;
+	}
+
+	#search-btn {
+		color: #0093ff;
+		float: right;
+		width: 40px;
+		height: 100%;
+		border-radius: 50%;
+		background:white;
+		border: none;
+		font-size: 16px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+/* 검색창 종료 */
+/*로그인 시작*/
+	.login-form{
+		position: relative;
+		background-color: #0093ff;
+		width:220px;
+		border-radius: 25px;
+		left: 197px;
+		
+	}
+	.int-area{
+		width: 200px;
+		position: relative;
+	}
+	.int-area input {
+		width: 100%;
+		padding: 20px 10px 10px;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid #999;
+		font-size: 19px;
+		color: white;
+		outline: none;
+	}
+	.int-area label{
+		position: absolute;
+		left: 10px;
+		top: 0;
+		font-size: 0.9rem;
+		color:  #fff
+	}
+	.login-btn button {
+		width: 100%;
+		height: 45px;
+		background-color: #0000ce;
+		color: white;
+		font-size: 1.5rem;
+		border: none;
+		border-radius: 0px 0px 25px 25px;
+		cursor: pointer;
+	}
+/* 로그인 종료 */
+/* 슬라이드 시작*/
+	#wrap {
+		height: 100%;
+		
+	}
+	#contents{
+		width:100%;
+		height: 300px;
+		background-color: #fff;
+		position: relative;
+		overflow: hidden;
+	}
+	.slide ul{
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 900px;
+		margin-top: 0; 
+		padding: 0;
+	}
+	.slide ul li{
+		width: 1000px;
+		height: 300px;
+		margin-top: -23px;
+	}
+	.slide ul li a{
+		display: block;
+		height: 100%
+	}
+	.slide ul li.s1{
+		background-color: #369;
+	}
+	.slide ul li.s2{
+		background-color: #0000ce;
+	}
+	.slide ul li.s3{
+		background-color: #0093ff;
+	}
+	.slide ul li h2{
+		background-color: #ceb398;
+		position:relative;
+		top: 50%;
+		left: 50%;
+		font-size: 28px;
+		font-weight: bold;
+		border-radius: 30px;
+		transform: translate(-50%, -50%);
+		width: 300px;
+	}
+	.play-stop{
+		position: absolute;
+		top:85%;
+		left:50%;
+		transform: translate(-60%, -50%);
+		font-size:40px;
+	}
+	.clear{
+		clear: both;
+	}
+	#container{
+		width:1000px;
+		height: 150px;
+		display: flex;
+		background-color: #ceb398;
+	}
+/*탭메뉴 시작*/
+	#container-tab{
+		width:500px;
+		height: 150px;
+	}
+
+	.tab {
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+		overflow: hidden;
+		
+	}
+
+	.tab li {
+		float: left;
+		border:1px solid;
+	}
+	
+	.tab li a {
+		display: inline;
+		color: black;
+		text-align: center;
+		text-decoration: none;
+		padding: 10px;
+
+    
+	}
+	
+	.tabcont {
+		display: none;
+		background-color:#ceb398;
+		padding: 6px 12px;
+		color:black;
+           	height: 110px;
+		width: 500px;
+		border:1px solid;      
+	}
+        .tabcont ul{
+        	display: flex;
+		margin:0px;
+	        padding:0px;
+        }
+	.tabcont.on {
+		display: block;
+	}
+
+/*탭메뉴 종료*/
+/*할인쿠폰*/
+	.con2 {
+		width: 500px;
+		height: 150px;
+		margin-top: -45px;
+		padding: 40px;
+	}
+	.con2 ul {
+		margin: -10px;
+	}
+/*할인쿠폰 종료*/
+	#footer {
+		height:150px;
+		clear:both;
+		background-color:#fff;
+	}
+	.footer-inner{
+		display: flex;
+	}
+	.footer-logo img{
+		margin:5px;
+		width: 150px;
+		margin-right: 120px;
+		height:150px;
+	}
+	.footer-info{
+		font-size: 12px;
+    		line-height: 10px;
+		margin-right: 120px;
+	}
+	.footer-con{
+		
+    		padding: 10px;
+		height: 150px;
+    	}
+	.footer-con h2{
+		color: #ceb398;
+		margin-top: -20px;
+	}
+	.footer-con ul{
+		text-align: center;
+        	display:flex;
+		margin: -50px;
+	}
+	.footer-con ul li{
+		display: inline-block;
+		margin-left:20px;
+	}
+	.footer-con ul li a{
+		display: block;
+		height: 100%;
+	}
+	.footer-con ul li p{
+		width: 80px;
+		height: 60px;
+		background-color: #ceb398;
+		text-align: center;
+		padding-top: 20px;
+		border-radius: 20px;
+       	font-size: 35px;
+	}
+	.footer-con ul li span{
+		margin-top: -30px;
+		display: block;
+		font-weight: bold;
+	}
+/*위로가기*/
+	#top {
+		position : fixed; 
+		bottom:5px; 
+		right:5px;
+		font-size: 35px;
+	}
+    </style>
+<script src="https://kit.fontawesome.com/028105e3db.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+	$("nav>ul>li").mouseover(function(){
+		$(".sub").stop().slideDown()
+		});		
+	
+	$("nav>ul>li").mouseout(function(){
+		$(".sub").stop().slideUp()
+		});
+	}); 
+
+	
+$(document).ready(function(){
+	$("#btn").click(function(){
+		if(id.value == ""){
+			alert("아이디를 입력바랍니다.");
+			id.focus();
+			return false;
+		}
+		if(password.value == ""){
+			alert("비밀번호를 입력바랍니다.");
+			password.focus();
+			return false;
+		}
+
+	});
+});
+
+$(document).ready(function(){
+	var t=0;
+	function slide(){
+		if(t<2){
+			t++;
+		}else{
+			t=0
+		}
+		$(".slide ul").animate({top:t * 300 * (-1)},1000)
+		}
+	setInterval(slide, 5000)
+});
+
+$(function() {
+			$('ul.tab li').click(function() {
+				var activeTab = $(this).attr('data-tab');
+				$('ul.tab li').removeClass('on');
+				$('.tabcont').removeClass('on');
+				$(this).addClass('on');
+				$('#' + activeTab).addClass('on');
+			})
+		});
+</script>
+</head>
+<body>
+    <div id="header">
+	<div class="header_img"><a href="이재우.html"><img src="감성돔 로고.jpeg" alt="감성돔 로고"></a>
+	</div>
+	<div class="search-section">
+		<form id="search-box" action="" method="get">
+			<input id="search-text" type="text" name="" placeholder="검색어를 입력하세요">
+			<button id="search-btn" type="submit">
+				<i class="fa-solid fa-magnifying-glass"></i>
+			</button>
+		</form>
+	</div>
+	<div class="login-form">
+		<form method="post" action="이재우.html" autocomplete="off">
+			<div class="int-area">
+				<input type="text" id="id" name="id" reqired>
+				<label for="id">아이디</label>
+			</div>
+			<div class="int-area">
+				<input type="password" id="password" name="password" reqired>
+				<label for="password">비밀번호</label>
+			</div>
+			<div class="login-btn">
+				<button type="submit" id="btn">로그인</button>
+			</div>
+			
+		</form>
+	</div>	
+    </div>
+<hr>
+    <div id="navigation">
+	<nav>
+		<ul>
+			<li><a href="#">민물</a>				
+				<ul class="sub">
+					<li><a href="#">민물낚시대</a></li>
+					<li><a href="#">원줄/목줄/릴줄</a></li>
+					<li><a href="#">민물찌/찌재료</a></li>
+					<li><a href="#">바늘/소품류</a></li>
+				</ul>
+			</li>
+			<li><a href="#">중층내림</a>
+				<ul class="sub">
+					<li><a href="#">내림낚시대</a></li>
+					<li><a href="#">내림라인</a></li>
+					<li><a href="#">내림찌/전자찌</a></li>
+					<li><a href="#">바늘/소품류</a></li>
+				</ul>
+			</li>
+			<li><a href="#">바다</a>
+				<ul class="sub">
+					<li><a href="#">찌낚시대</a></li>
+					<li><a href="#">원줄/목줄/릴줄</a></li>
+					<li><a href="#">바다찌</a></li>
+					<li><a href="#">바늘/채비</a></li>
+				</ul>
+			</li>
+			<li><a href="#">루어지깅</a>
+				<ul class="sub">
+					<li><a href="#">루어대</a></li>
+					<li><a href="#">소프트베이트</a></li>
+					<li><a href="#">하드베이트</a></li>
+					<li><a href="#">에기/에깅용품</a></li>
+				</ul>
+			</li>
+			<li><a href="#">릴장비관련</a>
+				<ul class="sub">
+					<li><a href="#">스피닝릴</a></li>
+					<li><a href="#">민물베이트릴</a></li>
+					<li><a href="#">바다용베이트릴</a></li>
+					<li><a href="#">전동릴/배터리</a></li>
+				</ul>
+			</li>
+			<li><a href="#">공통장비</a>
+				<ul class="sub">
+					<li><a href="#">파라솔/텐트</a></li>
+					<li><a href="#">낚시의자</a></li>
+					<li><a href="#">태클박스/소품케이스</a></li>
+					<li><a href="#">아이스박스/기포기</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+    </div>
+	</div>
+
+    <div id="wrap">
+    	<div id="contents">
+		<div class="slide">
+			<ul>
+				<li class="s1">
+					<a href="#">
+						<h2>중층내림찌 특가 세일</h2>
+					</a>
+				</li>
+				<li class="s2">
+					<a href="#">
+						<h2>하야부사 민물바늘 세일</h2>
+					</a>
+				</li>
+				<li class="s3">
+					<a href="#">
+						<h2>루어 낚시대 이월 상품</h2>
+					</a>
+				</li>
+			</ul>
+			<div class="play-stop"><i class="fa-solid fa-play"></i></div>
+		</div>
+	</div>
+    </div>
+
+	<div id="container">
+		<div id="container-tab">
+			<ul class="tab">
+				<li class="on" data-tab="menu1"><a href="#">공지사항</a></li>
+				<li data-tab="menu2"><a href="#">쇼핑뉴스</a></li>
+				<li data-tab="menu3"><a href="#">상품후기</a></li>
+			</ul>
+
+			<div id="menu1" class="tabcont on">
+				<ul>
+					<li><a href="#">추석 연휴 택배배송 및 영업시간 안내</li>
+					<li>2024.09.02</li>
+				</ul>
+				<hr>
+				<ul>
+					<li><a href="#">로젠 택배 택배비 인상 안내</li>
+					<li>2024.08.22</li>
+				</ul>
+				<hr>
+				<ul>
+					<li><a href="#">매장 연락처 및 영업시간 오시는길 안내</li>
+					<li>2024.02.14</li>
+				</ul>
+				
+			</div>
+
+			<div id="menu2" class="tabcont">
+				<ul>
+					<li><a href="#">시마노 쭈꾸미 낚시대 재입고</li>
+					<li>2024.09.02</li>
+				</ul>
+				<hr>
+				<ul>
+					<li><a href="#">청명 프리미엄 재입고</li>
+					<li>2024.08.22</li>
+				</ul>
+				<hr>
+				<ul>
+					<li><a href="#">프레소V 재입고</li>
+					<li>2024.02.14</li>
+				</ul>
+			</div>
+
+			<div id="menu3" class="tabcont">
+				<ul>
+					<li><a href="#">한국다이와정공}청명MX2 후기</li>
+					<li>2024.09.02</li>
+				</ul>
+<hr>
+				<ul>
+					<li><a href="#">야마시타 2024년 신형 토토슷테 후기</li>
+					<li>2024.08.22</li>
+				</ul>
+<hr>
+				<ul>
+					<li><a href="#">한국다이와정공DC-9424 후기</li>
+					<li>2024.02.14</li>
+				</ul>
+			</div>
+		</div>
+		<div class="con2">
+			<a href="#">
+				<div>
+					<h2>회원가입 시 적립금 + 할인쿠폰</h2>
+					<ul>
+						<li>혜택1. 상품구매금액의 1프로 적립</li>
+						<li>혜택2. 7만원 이상 구매시 무료 배송</li>
+						<li>혜택3. 생일 축하 7%할인쿠폰</li>
+					</ul>
+				</div>
+			</a>
+		</div>
+		
+	</div>
+<hr>
+	<div id="footer">
+		<div class="footer-inner">
+			<div class="footer-logo">
+				<img src="감성돔 로고.jpeg" alt="감성돔 로고">
+			</div>
+			<div class="footer-info">
+				<h2 class="footer-info-name">돔돔낚시</h2>
+				<p>대표이사:### | 사업자등록번호: 000-00-00000</p>
+				<p>주소:##시##로##번길</p>
+				<p>대표번호:010-0000-0000</p>
+				<p>통신판매업신고 : 0000-##시-0000호 |  정보책임자: ###</p>
+			</div>
+			<div class="footer-con">
+				<h2>바로가기</h2>
+				<ul>
+					<li>
+						<a href="#">
+							<p><i class="fa-solid fa-calendar-days"></i></p>
+							<span>출석체크</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<p><i class="fa-solid fa-truck-fast"></i></p>
+							<span>배송조회</span>
+						</a>
+					</li>
+					<li>
+						<a href="이재우.html">
+							<p><i class="fa-solid fa-house"></i></p>
+							<span>홈으로</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>	
+<a href="#" id="top"><i class="fa-solid fa-arrow-up"></i></a>
+</body>
+</html>

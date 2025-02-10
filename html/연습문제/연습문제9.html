@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+	</script>
+	<script>
+		 $(document).ready(function () {
+            
+			// 사용자가 옵션을 변경하여 선택하면 선택한 옵션의 value 와 text를 이용하여 div에 출력
+			$("select").on("change", changeval)
+		
+			function changeval(){
+				var a = $(":selected").val()
+				var b = $(":selected").text()
+				$("div").append(b+"는"+a+"원"+"<br/>")	
+			}
+			
+        });
+	</script>
+</head>
+<body>
+
+   <select>
+        <option value="5000">수박</option>
+        <option value="3000">복숭아</option>
+        <option value="7000">멜론</option>
+        <option value="2000">체리</option>
+    </select><br />
+	내가 먹고 싶은 과일은
+    <div></div>
+
+</body>
+</html>

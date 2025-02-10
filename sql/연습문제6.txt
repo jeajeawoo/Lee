@@ -1,0 +1,40 @@
+db.prod.insertOne({group:"과일",item:"망고",price:3000})
+db.prod.insertOne({group:"전자제품",item:"TV",price:5000,company:"삼숑"})
+db.prod.insertOne({group:"과일",item:"바나나",price:1000})
+db.prod.insertOne({group:"과일",item:"수박",price:5000,addr:"부산"})
+db.prod.insertOne({group:"전자제품",item:"휴대폰",price:4000,company:"엘쥐전자"})
+db.prod.insertOne({group:"의류",item:"원피스",price:5000,addr:"미쿡",title:"여성의류"})
+db.prod.insertOne({group:"의류",item:"원피스",price:2000,company:"나이스"})
+
+
+4) _id, group 를 제외하고 price 내림차순 정렬하여 조회
+db.prod.find({},{_id:0,group:0}).sort({price:-1})
+5) group가 "과일" 데이터를 조회하고 item 오름차순 정렬
+db.prod.find({group:"과일"},{_id:0}).sort({item:1})
+6) price 가 2000 이상이고 4000이하인 데이터를 조회
+db.prod.find({price:{$gte:2000,$lte:4000}},{_id:0})
+7) group 가 "과일" 이거나 "의류" 인 데이터를 조회한느데 _id, company, title는제외하고 출력
+db.prod.find({$or:[{group:"과일"},{group:"의류"}]},{_id:0,company:0,title:0})
+8) group 가 "전자제품" 이고 item 이 "휴대폰" 인 데이터의 price는 5000, company는 "먹다만사과"로 수정
+db.prod.updateOne({group:"전자제품",item:"휴대폰"},{$set:{price:5000,company:"먹다만사과"}})
+db.prod.find({group:"전자제품",item:"휴대폰"},{_id:0})
+
+
+
+revoke all on *.* from "seoulit1004"@"localhost";
+revoke all on *.* from "abc"@"localhost";
+revoke all on *.* from "test"@"localhost";
+create database seoulitDB CHARACTER SET UTF8 COLLATE utf8_general_ci;
+
+grant all on seoulitDB.* to "seoulit1004"@"localhost";
+
+grant select on seoulitDB.* to "test"@"localhost";
+
+grant select on sqlDB.sqlDB_view to "abc"@"localhost";
+grant insert on sqlDB.buyTbl to "abc"@"localhost";
+insert into buyTbl value (null,'BBK','책','2024-11-13',50,2);
+
+revoke create, drop, alter on seoulitDB.* from "seoulit1004"@"localhost";
+
+
+

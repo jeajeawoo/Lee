@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+span{
+	color:red;
+}
+</style>
+<script>
+
+/* $(document).ready(function(){
+	// $(selector).parent(filter) : 부모요소
+	$("button").click(function(){
+
+		$("span").parent().parent().css("backgroundColor","yellow")
+
+		});
+
+	}); */
+
+/* $(document).ready(function(){
+
+	$("button").click(function(){
+
+		$("span").parent().parent().css("backgroundColor","yellow")
+		$("span").parent().parent().parent().parent().css("border", "1px solid red");
+		// table > tbody > tr > td
+
+		});
+
+	}); */
+
+/* $(document).ready(function(){
+
+	$("button").click(function(){
+
+		$("span").parents().css("backgroundColor","yellow")
+
+		});
+
+	}); */
+
+/* $(document).ready(function(){
+
+	$("button").click(function(){
+		// 자식요소 반환 children()
+		$("ul").children().css("border","1px solid yellow")
+
+		});
+
+	});  */ 
+
+/* $(document).ready(function(){
+
+	$("button").click(function(){
+		// siblings ,형제
+		$(".aaa").siblings().css("border","1px solid yellow")
+
+		});
+
+	}); */
+
+/* $(document).ready(function(){
+
+	$("button").click(function(){
+	
+		$("div").find("span").css("border","1px solid green")
+		//div 자식중에 span
+		});
+
+	}); */
+
+/* $(document).ready(function(){
+
+	$("button").click(function(){
+	
+		$("li").filter(".aaa").css("border","1px solid green")
+		//li중에 .aaa 
+		});
+
+	});  */
+
+  $(document).ready(function(){
+		
+		var ary = ["뭉치", "만두", "뿌꾸", "노아", "뚜비"]
+
+		//for (var i=0; i<ary.length; i++)
+		//	alert(ary[i])
+		var aa = ""
+		//for(var x in ary) {
+		//	alert(aa+=ary[x]);
+		//}
+		
+		/*$.each(ary,function(i,a){
+		
+			alert(i+a);
+
+		}); */
+
+
+
+	$("button").click(function(){
+
+		$("li").each(function(i,a){		
+		//alert($("li").eq(i).text());
+		//alert($("li").eq(1).text());
+		//alert($("li").eq(2).text()); 
+		//alert(a.tagName)
+		 alert(aa+=$(this).text())
+			
+			var text =$(this).text()
+			$("ul").append("<li>"+text+"</li>");
+			});
+		})
+
+	});
+
+</script>
+</head>
+<body>
+<h1>HTML 탐색</h1>
+<!--
+<div>
+	<ul>
+		<li>목록1</li>
+		<li class="aaa"><span>목록2</span></li>
+		<li>목록3</li>
+	</ul>
+</div>
+<ol>
+	<li>목록1</li>
+	<li class="aaa"><span>목록2</span></li>
+	<li>목록3</li>
+</ol>
+-->
+<ol>
+	<li>목록1</li>
+	<li>목록2</li>
+	<li>목록3</li>
+</ol>
+
+<ul>
+
+</ul>
+<!--
+<table>
+	<tr>
+		<td><span>테이블</span></td>
+		<td>테이블</td>
+	</tr>
+</table>
+-->
+<button>버튼</button>
+</body>
+</html>
+

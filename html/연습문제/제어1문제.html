@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery</title>
+	<style>
+	.new { color:red; }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+	
+	$(document).ready(function(){
+	// 입력 양식의 값을 ol에 추가한 후
+	// 추가한 li는 css 적용을 받도록 합니다.
+		$("button").click(function(){
+			
+			$("<li>"+ $("input").val()+"</li>").appendTo("ol").addClass("new");
+
+		});
+
+	});
+
+/* $(document).ready(function(){
+
+	//$(content).appendTo(selector)
+	$("button").click(function(){
+
+		$("h1").appendTo("p");
+		//요소에 선택자가 올 경우 이동하기
+		$("<li>추가요소</li>").appendTo("ol").addClass("bbb");
+		// li 를 ul 추가한 다음 li에 bbb 클래스 추가 
+		});
+
+	}); */
+	</script>
+</head>
+<body>
+
+	<ol>
+	  <li>수박</li>
+	  <li>토마토</li>
+	  <li>사과</li>
+	</ol>
+
+	<input type="text">
+	<button id="btn1">추가하기</button>
+
+</body>
+</html>

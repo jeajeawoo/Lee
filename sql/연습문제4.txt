@@ -1,0 +1,78 @@
+1) "운동화의 재고수량" 보다 큰 물건을 구매한 사용자의 아이디, 상품명, 재고 수량을 조회 하시오.
+
+select prodStock from prodTbl
+where prodName='운동화'
+
+select b.userID, b.prodName, p.prodStock
+from buyTbl as b
+join prodTbl as p
+on b.prodName=p.prodName
+where p.prodStock>(select prodStock from prodTbl
+where prodName='운동화');
+
+
+2) "전체 주문 내역 평균 금액" 보다 큰 사용자별 총합계 금액 사용자의 userid, name, addr, 총 합계금액을 조회 하시오.
+
+select avg(b.price*b.amount) from buyTbl as b
+
+select u.userID, u.name, u.addr, sum(b.price*b.amount)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+group by userID
+having sum(b.price*b.amount)>=(select avg(b.price*b.amount) from buyTbl as b)
+
+
+
+3) "전체 주문 매출액의 20%" 이상의 사용자별 총 합계금액을 주문한 사용자의 userID, name, addr, 총 합걔금액을 조회하시오.
+
+
+select sum(b.price*b.amount)*0.2 from buyTbl as b
+
+select u.userID, u.name, u.addr, sum(b.price*b.amount)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+group by userID
+having sum(b.price*amount)>=(select sum(b.price*b.amount)*0.2 from buyTbl as b);
+
+4) "상품 분류에서 분류 포인트가 가장 큰 상품"을 구매한 사용자의 userID, prodName, prodGroup을 조회 하시오.
+
+select prodGroup from groupTbl
+order by groupPoint desc limit 0,1;
+
+select b.userID, b.prodName, g.prodGroup
+from groupTbl as g
+join prodTbl as p
+on g.prodGroup=p.prodGroup
+join buyTbl as b
+on p.prodName=b.prodName
+where p.prodGroup=(select prodGroup from groupTbl
+order by groupPoint desc limit 0,1);
+
+
+5) "상품의 분류명이 '전자'를 구매한 적이 있는 사용자들" 사용자별  '전자'를 포함한  총 합계금액, 사용자 아이디를 조회하시오
+
+
+select b.userID
+from buyTbl as b
+join prodTbl as p
+on b.prodName=p.prodName
+join groupTbl as g
+on p.prodGroup=g.prodGroup
+where g.groupName='전자';
+
+
+select sum(price*amount), userID
+from buyTbl
+where userID=any(select b.userID
+from buyTbl as b
+join prodTbl as p
+on b.prodName=p.prodName
+join groupTbl as g
+on p.prodGroup=g.prodGroup
+where g.groupName='전자')
+group by userID;
+
+
+

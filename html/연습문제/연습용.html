@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+    <title>CSS3</title>
+    <style>
+	*{
+		mergin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	li{
+		list-style: none;
+	}
+	img{
+		max-width: 100%;
+	}
+	a{
+		text-decoration: none;
+		color: inherit;
+	}
+	button{
+		cursor: pointer;
+	}
+	body{
+		background-color: #fff;
+		color: #333;
+	}
+	.wrap{
+		width: 1200px;
+		margin: auto;
+		
+	}
+	
+	#header{
+		position: relative;
+		padding-top: 35px;
+		padding-left: 10px;
+		height:100px;
+		background-color: #ceb398;
+	}
+    #header h1{
+    	width: 200px;
+        height: 40px;
+    }
+    #header h1 a{
+    	display: block;
+    }
+	nav{
+		position: absolute;
+		top: 40px;
+		right: 0;
+	}
+	nav>ul{
+		display: flex;
+	}
+	nav>ul>li>a{
+		display: block;
+		width: 120px;
+		background-color: #fff;
+		text-align: center;
+		font-weight: bold;
+		color: #ceb398;
+		padding: 10px;
+	}
+	nav>ul>li:hover>a, nav>ul>li>a:focus, nav>ul>li.on>a{
+		background-color: #ceb398;
+		color: #333;
+	}
+	.sub li a{
+		display: block;
+		padding: 5px;
+		text-align: center;
+		font-size: 14px;
+		background-color: #fff;
+	} 
+	.sub li a:hover, .sub li a:focus{
+		background: #f3e2d2;
+	}
+	.slide{
+		height: 300px;
+		background-color: #fc6;
+		position: relative;
+		overflow: hidden;
+	}
+	.slide ul{
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 900px;
+	}
+	.slide ul li{
+    		position:relative;
+		width: 1200px;
+		height: 300px;
+	}
+	.slide ul li a{
+		display: block;
+		height: 100%;
+	}
+	.slide ul li.s1{
+		background-color: red;
+	}
+	.slide ul li.s2{
+		background-color: blue;
+	}
+	.slide ul li.s3{
+		background-color: yellow;
+	}
+	.slide ul li h2{
+		background-color: #ceb398;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		font-size: 28px;
+		font-weight: bold;
+		border-radius: 30px;
+		transform: translate(-50%, -50%);
+	}
+	.con{
+		height: 200px;
+		display: flex;
+	}
+	.con article{
+		width: 400px;
+		height: 100%;
+	}
+	.con2{
+    		padding: 10px;
+   	}
+	.con2 a{
+		display: block;
+		height: 100%;
+		background-color: #ceb398;
+		border-radius: 30px;
+		text-align: center;
+		overflow: hidden;
+		}
+	.con2 div{
+		background-color: rgba(206,179,152,.8);
+		height: 100%;
+		padding-top: 20px;
+	}
+	con2 h2{
+		margin-bottom: 10px;
+	}
+	.con2 p{
+		background-color: #333;
+		text-align: center;
+		color: #fff;
+		display: inline-block;
+		font-size: 13px;
+		margin-top: 20px;
+	}
+	.con3{
+    		padding: 10px;
+    	}
+	.con3 h2{
+		color: #ceb398;
+		margin-botton: 20px;
+	}
+	.con3 ul{
+		text-align: center;
+	}
+	.con3 ul li:first
+	.con3 ul li{
+		display: inline-block;
+		margin-left:20px;
+	}
+	.con3 ul li a{
+		display: block;
+		height: 100%;
+	}
+	.con3 ul li p{
+		width: 80px;
+		height: 80px;
+		background-color: #ceb398;
+		text-align: center;
+		padding-top: 20px;
+		border-radius: 20px;
+	}
+	.con3 ul li span{
+		margin-top: 10px;
+		display: block;
+		font-weight: bold;
+	}
+	footer{
+		height: 100px;
+		background: #333;
+	}
+	.slide ul{
+		position: absolute;
+		top: 0; 
+		left: 0; 
+		height: 900px;	
+	}
+	.slide ul li{
+		width: 1200px;
+		height: 300px;
+	}
+	.slide ul li a{
+		display: block;
+		height: 100%
+	}
+	.slide ul li.s1{
+		background-color: #369;
+	}
+    /*탭메뉴 시작*/
+	.tab-wrap {
+		width:400px;
+		height: 200px;
+		background-color:#fff;
+	}
+/*	input {
+		display:none; */
+	}
+	.tab-menu {
+		display:flex;
+		font-size:18px;
+		padding:5px 10px;
+		height:40px;
+	}
+	.tab-menu>label{
+		margin-right:20px;
+		cursor: pointer;
+	}
+	.box {
+		padding:10px;
+		width: 100%;
+		height: 160px;
+		display: none;
+	}
+	.box-1 , .box-2 , .box-3 {
+		background-color:#0093ff;
+	}
+	#tab-1:checked~.tab-menu-1 , #tab-2:checked~.tab-menu-2 , #tab-3:checked~.tab-menu-2{
+		font-weight: 400;
+	}
+	
+	#tab-1:checked~.box-1 , #tab-2:checked~.box-2 , #tab-3:checked~.box-2 {
+		display: block;
+	}
+	/* 검색창 시작 */
+	#search-box {
+		width:400px;
+		height: 45px;
+		background:white;
+		border-radius:40px;
+		padding:10px;
+		border:1px solid #0093ff;
+		position:relative;
+		left:100px;
+		top: 40px;
+		
+	}
+
+	#search-text {
+		border: none;
+		background: none;
+		outline: none;
+		float: left;
+		padding: 0px;
+		color: black;
+		font-size: 16px;
+		line-height: 50px;
+		width: 200px;
+	}
+
+	#search-btn {
+		color: #0093ff;
+		float: right;
+		width: 40px;
+		height: 100%;
+		border-radius: 50%;
+		background:white;
+		border: none;
+		font-size: 16px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+/* 검색창 종료 */
+	#header {
+		height:150px;
+		margin: 10px;
+		display: flex;
+	}
+	.header_img img {
+		width: 100px;
+		height: 100px;
+		margin: 20px;
+	}
+
+	#navigation {
+		height:60px;
+		background-color:#0093ff;
+		border:none;
+		
+	}
+	nav{
+	position:relative;
+	z-index: 5;
+	top:10px;
+	}
+	nav>ul{
+		display:flex;
+	}
+	nav>ul>li>a{
+		display: block;
+		width: 120px;
+		background-color: #0093ff;
+		text-align: center;
+		font-weight: bold;
+		color: #fff;
+		padding: 10px;
+		text-decoration: none;
+	}
+	nav>ul>li:hover>a{
+		color: #fff;
+		background-color: #0000ce;
+	}
+	.sub{
+		display: none;
+	}
+
+	.sub li a {
+		background-color: #0093ff;
+		display: block;
+		padding: 6px;
+		text-align: center;
+		font-size: 14px;
+		text-decoration: none;
+		color: #fff;
+	}
+	.sub li a:hover{
+		background: #0000ce
+	}
+	/*로그인 시작*/
+	.login-form{
+		position: relative;
+		background-color: #0093ff;
+		width:220px;
+		border-radius: 25px;
+		left: 197px;
+		
+	}
+	.int-area{
+		width: 200px;
+		position: relative;
+	}
+	.int-area input {
+		width: 100%;
+		padding: 20px 10px 10px;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid #999;
+		font-size: 1.2rem;
+		color: white;
+		outline: none;
+	}
+	.int-area label{
+		position: absolute;
+		left: 10px;
+		top: 0;
+		font-size: 0.9rem;
+		color:  #fff
+	}
+	.login-btn button {
+		width: 100%;
+		height: 45px;
+		background-color: #0000ce;
+		color: white;
+		font-size: 1.5rem;
+		border: none;
+		border-radius: 0px 0px 25px 25px;
+		cursor: pointer;
+	}
+/* 로그인 종료 */
+/*탭메뉴 종료*/
+    </style>
+<script src="https://kit.fontawesome.com/028105e3db.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("nav>ul>li").mouseover(function(){
+		$(".sub").stop().slideDown()
+		});		
+	
+	$("nav>ul>li").mouseout(function(){
+		$(".sub").stop().slideUp()
+		});
+	}); 
+
+	
+$(document).ready(function(){
+	$("#btn").click(function(){
+		if(id.value == ""){
+			alert("아이디를 입력바랍니다.");
+			id.focus();
+			return false;
+		}
+		if(password.value == ""){
+			alert("비밀번호를 입력바랍니다.");
+			password.focus();
+			return false;
+		}
+
+	});
+});
+
+$(document).ready(function(){
+	var t=0;
+	function slide(){
+		if(t<2){
+			t++;
+		}else{
+			t=0
+		}
+		$(".slide ul").animate({top:t * 300 * (-1)},1000)
+		}
+	setInterval(slide, 2000)
+});
+
+$(function() {
+		$('ul.tab li').click(function() {
+			var activeTab = $(this).attr('data-tab');
+			$('ul.tab li').removeClass('on');
+			$('.tabcont').removeClass('on');
+			$(this).addClass('on');
+			$('#' + activeTab).addClass('on');
+		})
+	});
+</script>
+
+</script>
+</head>
+<body>
+	<div class="wrap"
+		<div class="inner">
+			<div id="header">
+				<div class="header_img"><a href="기본뼈대2.html"><img src="감성돔 로고.jpeg" alt="상단로고"></a>
+				</div>
+				<div class="search-section">
+					<form id="search-box" action="" method="get">
+					<input id="search-text" type="text" name="" placeholder="검색어를 입력하세요">
+					<button id="search-btn" type="submit">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+					</form>
+				</div>
+				<div class="login-form">
+					<form method="post" action="기본뼈대2.html" autocomplete="off">
+						<div class="int-area">
+							<input type="text" id="id" name="id" reqired>
+							<label for="id">아이디</label>
+						</div>
+						<div class="int-area">
+							<input type="password" id="password" name="password" reqired>
+							<label for="password">비밀번호</label>
+						</div>
+						<div class="login-btn">
+							<button type="submit" id="btn">로그인</button>
+						</div>
+					</form>
+				</div>	
+				
+			<div id="navigation">
+				<nav>
+					<ul>
+						<li><a href="#">민물</a>
+							<ul class="sub">
+								<li><a href="#">민물낚시대</a></li>
+								<li><a href="#">원줄/목줄/릴줄</a></li>
+								<li><a href="#">민물찌/찌재료</a></li>
+								<li><a href="#">바늘/소품류</a></li>
+							</ul>
+						</li>
+						<li><a href="#">중층내림</a>
+							<ul class="sub">
+								<li><a href="#">내림낚시대</a></li>
+								<li><a href="#">내림라인</a></li>
+								<li><a href="#">내림찌/전자찌</a></li>
+								<li><a href="#">바늘/소품류</a></li>
+							</ul>
+						</li>
+						<li><a href="#">바다</a>
+							<ul class="sub">
+								<li><a href="#">찌낚시대</a></li>
+								<li><a href="#">원줄/목줄/릴줄</a></li>
+								<li><a href="#">바다찌</a></li>
+								<li><a href="#">바늘/채비</a></li>
+							</ul>
+						</li>
+						<li><a href="#">루어지깅</a>
+							<ul class="sub">
+								<li><a href="#">루어대</a></li>
+								<li><a href="#">소프트베이트</a></li>
+								<li><a href="#">하드베이트</a></li>
+								<li><a href="#">에기/에깅용품</a></li>
+							</ul>
+						</li>
+						<li><a href="#">릴장비관련</a>
+							<ul class="sub">
+								<li><a href="#">스피닝릴</a></li>
+								<li><a href="#">민물베이트릴</a></li>
+								<li><a href="#">바다용베이트릴</a></li>
+								<li><a href="#">전동릴/배터리</a></li>
+							</ul>
+						</li>
+						<li><a href="#">공통장비</a>
+							<ul class="sub">
+								<li><a href="#">파라솔/텐트</a></li>
+								<li><a href="#">낚시의자</a></li>
+								<li><a href="#">태클박스/소품케이스</a></li>
+								<li><a href="#">아이스박스/기포기</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+  			  </div>
+				<div class="con">
+					<article class="con1">
+						<div class="tab-wrap">
+							<input type="radio" name="tab" id="tab-1" checked>
+							<input type="radio" name="tab" id="tab-2">
+							<input type="radio" name="tab" id="tab-3">
+							<div class="tab-menu">
+								<label for="tab-1" class="menu-1">공지사항</label>
+								<label for="tab-2" class="menu-2">쇼핑뉴스</label>
+								<label for="tab-3" class="menu-3">상품후기</label>
+							</div>
+						<div class="box box-1">탭내용</div>
+						<div class="box box-2">탭내용</div>
+						<div class="box box-3">탭내용</div>
+					</article>
+					<article class="con2">
+						<a href="#">
+							<div>
+								<h2>회원가입 시 적립금 + 할인쿠폰</h2>
+								<ul>
+									<li>혜택1. 상품구매금액의 1프로 적립</li>
+									<li>혜택2. 7만원 이상 구매시 무료 배송</li>
+									<li>혜택3. 생일 축하 7%할인쿠폰</li>
+								</ul>
+							</div>
+						</a>
+					</article>
+					<article class="con3">
+						<h2>바로가기</h2>
+						<ul>
+							<li>
+								<a href="#">
+									<p><img src="" alt="출석체크"></p>
+									<span>출석체크</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<p><img src="" alt="배송조회"></p>
+									<span>배송조회</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<p><img src="" alt="즐겨찾기"></p>
+									<span>즐겨찾기</span>
+								</a>
+							</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+			<footer>
+				
+			</footer>
+		</div>
+	</div>
+
+
+</body>
+</html>

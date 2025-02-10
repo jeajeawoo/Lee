@@ -1,0 +1,49 @@
+1) 상품별로 주문내역이 있는 상품과 주문내역이 없는 상품을 조회하는데 상품명, 제조사, 총 합계금액을 출력하시오.
+
+
+select p.prodName, p.prodCom, sum(b.price*b.amount)
+from prodTbl as p
+left join buyTbl as b
+on p.prodName=b.prodName
+group by prodName;
+
+2) 주문내역이 없는 사용자들 중에서 지역이 '서울'인 사용자의 아이디, 이름, 지역을 조회하시오
+
+
+select u.userID, u.name, u.addr
+from userTbl as u
+left join buyTbl as b
+on u.userID=b.userID
+where u.addr='서울' and b.userID is NULL;
+
+
+3) 구매내역이 없는 회원들만 조회하여 아이디, 이름, mobile1, mobile2를 조회 전화번호의 형식은 010-123-5678 로 표시
+
+
+select u.userID, u.name, concat_ws('-',mobile1, left(mobile2,3), right(mobile2,4)) as phone
+from userTbl as u
+left join buyTbl as b
+on u.userID=b.userID
+where b.userID is NULL
+group by u.userID;
+
+
+4) 2021년 6월 20일 이전의 구매내역 중에서 날짜별로 총합계 금액을 출력 날짜는 "2021. 06. 20" 식으로 출력하고 총 합계금액은 천 단위로 "," 표시날짜 오름차순 정렬
+
+
+select concat_ws('. ',left(oDate,4),mid(oDate,6,2),right(oDate,2)) as date,
+format(sum(price*amount),0) as sum
+from buyTbl
+where oDate<='2021-06-20'
+group by oDate
+order by oDate asc;
+
+
+5) prodTbl에 groupTbl의 prodGroup 컬럼을 외래키로 설정하시오.
+
+
+alter table prodTbl add constraint FK_groupTbl_prodTbl
+foreign key (prodGroup)
+references groupTbl(prodGroup);
+
+select * from information_schema.table_constraints where table_name="prodTbl";

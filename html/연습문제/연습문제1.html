@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX1</title>
+    <script>
+function myfunction(){
+	
+	var aa = document.getElementsByTagName("p")[0].innerText;	
+	var bb = document.getElementsByTagName("p")[2].innerText;
+	document.getElementById("aaa").style.color=aa;
+	document.getElementById("bbb").style.backgroundColor=bb;
+	
+		
+}   
+
+//var aa = document.getElementsByTagName("p")[0].innerText;
+//document.getElementById("demo").innerText = text;  
+
+//var aa = document.getElementsByTagName("p")[0].innerText;
+//document.write(aa);
+//for(var i=0; i<4; i++){
+//for(var i=0; i<4; i++)
+
+//document.write(aa[i]);
+//} 
+//document.write(aa);
+//getElementById("bbb[0]")
+//getElementById("aa");
+
+
+/* function chColor(){
+	//css 적용: 요소.style.속성명="값";
+	//요소{속성:값}
+	document.getElementById("bbb").style.color="red";
+	document.getElementById("bbb").style.backgroundColor="yellow";
+	document.getElementById("bbb").style.border="2px solid black";
+}  */
+
+/* function chColor(){
+	document.getElementById("aaa").style.color = "red";
+	//문서객체에서(HTML) id가 aaa인 요소를 찾아서 style속성 중 색상을 red로
+	var aa = document.getElementsByTagName("p");
+	
+		aa[i].style.color = "blue";
+	}
+}	//여러개를 다룰때는 배열처럼 [] 다룬다 */
+
+
+/* function chHTML(){
+	var aa = document.getElementById("bbb").innerHTML;
+	
+	alert(aa);
+	alert(bb);
+	//id 가 aaa 의 글자를"변경된 글자";
+	document.wirte(aa)
+	//문서를 읽은 후에 실행 할 경우 이전 내용을 리셋
+	document.getElementById("aaa").innerText="변경된 글자"
+}  */
+    </script>
+</head>
+<body>
+
+<p>red</p>
+<p>blue</p>
+<p>green</p>
+
+<div id="aaa">p의 첫번째 색상으로 글자색상 변경</div>
+<p id="bbb">p의 세번째 색상으로 배경색상 변경</p>
+<button onclick="myfunction();">클릭하세요</button>
+</body>
+</html>

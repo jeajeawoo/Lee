@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+/* function crt(){
+	var aa= document.getElementById("form1").method;
+
+	document.getElementById("aaa").innerText = aa;
+	
+	} */
+
+/* function crt(){
+	var aa= document.getElementById("form1").length;
+	//form 안에  들어가 있는 입력 양식의 갯수
+	var bb= document.getElementById("form1").action;
+
+	document.getElementById("aaa").innerHTML = aa
+
+	document.getElementById("aaa").innerHTML += bb;
+	// 누적 출력
+	} */
+
+/* function crt() {
+
+	var aa = document.getElementById("test1").value;
+	// 아이디가 test1의 value 값
+
+	var bb = document.getElementById("test2").value;
+	
+	document.getElementById("aaa").innerHTML = aa + "<br />";
+
+	document.getElementById("aaa").innerHTML += bb;
+
+	document.getElementById("test1").value = "수정된값";
+	//value 값 수정	
+		
+	} */
+/* function crt() {
+	
+	var aa = document.forms[0].elements[0].value;
+	//첫번째 폼의 첫번째 입력양식 값
+
+	var bb = document.forms[1].elements[0].value;
+	
+	document.getElementById("aaa").innerHTML = aa + "<br />";
+
+	document.getElementById("aaa").innerHTML += bb ;
+
+	}  */
+
+/* function crt() {
+	
+	// 버튼을 클릭하면 체크 안되어있으면 체크하고 되어있으면 해제
+
+	if(document.getElementById("test2").checked){
+		
+		document.getElementById("test2").checked =false;
+	}else{
+		document.getElementById("test2").checked =true;
+	} 
+	// 체크박스 또는 라디오 버튼의 체크 유무
+	// true(체크함), false
+
+	//document.getElementById("aaa").innerHTML = aa + "<br />";
+
+	//document.getElementById("aaa").innerHTML += bb;
+
+	}  
+*/
+
+/* function crt() {
+
+	// 셀렉트 접근
+
+	var sel = document.getElementById("test3");
+	// 첫번째 옵션의 value text
+
+	var aa = sel.options[0].value;
+	var bb = sel.options[0].text;
+
+	document.getElementById("aaa").innerHTML = aa + bb;
+
+	} */
+
+/* function crt() {
+
+	// 셀렉트 접근
+
+	var sel = document.getElementById("test3");
+	// 사용자가 선택한 옵션의 value, text 
+	// 객체.selectedIndex
+	
+	var aa = sel.options[sel.selectedIndex].value;
+	var bb = sel.options[sel.selectedIndex].text;
+
+	document.getElementById("aaa").innerHTML = aa + bb;
+
+	}  */
+
+/* function changeColor() {
+
+document.getElementById("bbb").style.color = "red";
+
+} */
+
+// 고전 이벤트 연결 방식
+/* window.onload = function(){
+//브라우저가 모든 내용을 다 읽고 난 후에 실행
+	document.getElementById("bbb").style.color = "red";
+
+	} */
+
+
+
+// 이벤트대상.on이벤트이름 = function { 이벤트 핸들러(리스너, 처리기) };
+/* window.onload = function() {
+
+	//버튼을 클릭하면 글자색상 변경
+	document.getElementById("ccc").onclick = function() {
+		document.getElementById("bbb").style.color = "red";
+		};
+	document.getElementById("ddd").onclick = function() {
+		document.getElementById("aaa").style.backgruondColor = "orange";
+		};
+	// function 함수명() {}
+	// 두번째버튼을 클릭하면 div의 배경색상을 orange로 변경
+
+	}; */
+
+	// 동일한이벤트 대상에 이벤트 핸들러 여러개 안됨	
+	
+/* window.onload = function() {
+	document.getElementById("ccc").onclick = function() {
+		document.getElementById("bbb").style.color = "red";
+		document.getElementById("aaa").style.backgruondColor = "orange";
+		};
+	}; */
+
+//표준 이벤트 모델
+//대상객체.addEventListener(이벤트명, 이벤트핸들러)
+/* window.onload = function() {
+
+	document.getElementById("ccc").addEventListener("click", changeColor);
+	document.getElementById("ccc").addEventListener("click", changeBack);
+	//동일한 이벤트에 다수의 핸들러 사용
+	function changeColor() {
+		document.getElementById("bbb").style.color = "red";
+		}
+
+	document.getElementById("bbb").addEventListener("mouseover", changeBack);
+	//마우스 올리면
+	function changeBack() {
+
+		document.getElementById("aaa").style.backgroundColor = "orange";
+		}
+
+	}; */
+
+/* function changeText(){
+
+	var txt = document.getElementById("eee").value;
+	document.getElementById("ccc").innerHTML =txt;
+
+	} */
+
+// 입력 양식에서 키를 뗄때 발생하는 이벤트
+// 입력 양식의  value  를  div 출력
+
+/* function changeText() {
+
+	var sel = document.getElementById("test3");
+	var txt = sel.options[sel.selectedIndex].text;
+	// 사용자가 선택한 옵션을 글자를 div 에 출력
+	document.getElementById("aaa").innerHTML = txt;
+	}  */
+
+/* window.onload = function(){
+
+	document.getElementById("aaa").onclick=function(event){
+		//이벤트 핸들러 함수의 매개변수로 이벤트 객체 사용가능
+		document.getElementById("aaa1").innerHTML=event.type+"."
+		//type, target, pageX, pageY	
+		};
+	}  */
+
+/* function changeText(obj){
+	
+	obj.innerHTML= obj.tagName;
+	//obj = document.getElementById("d1")
+	}
+*/
+
+/* window.onload = function(){
+
+	document.getElementById("aaa1").onclick = function(){
+		alert(this);		
+		}
+	}
+*/
+
+//표준 이벤트모델로 연결
+//b1을 클릭하면 div 의 배경색상을 orange
+//b1을 클릭하면 p 의  글자크기를 32px
+//p 태그위로 마우스를 올리면 p의 배경색상이 Yellow
+
+/* window.onload = function(){
+
+	var bb1 = document.getElementById("b1");
+
+	bb1.addEventListener("click", chBack);
+
+	bb1.addEventListener("click", chSize);
+
+
+	var pp1 = document.getElementById("p1");
+
+	pp1.addEventListener("mouseover", chBack2);
+
+	function chBack(){
+
+		document.getElementById("aaa1").style.backgroundColor = "orange";
+		
+		};
+	function chSize(){
+
+		document.getElementById("p1").style.fontSize = "32px"
+
+		};
+	function chBack2(){
+
+		document.getElementById("p1").style.backgroundColor = "Yellow";
+
+		};	
+
+	//b2를 클릭하면 b1의 클릭 이벤트 중에서 chSize 를 해제한다
+	document.getElementById("b2").onclick = function(){
+		bb1.removeEventListener("click", chSize)
+		};
+	};
+*/
+
+
+/* function nodeDel(obj){
+	//부모가져오기
+	var par = obj.parentNode;
+	//부모의 자식 객체 삭제
+	par.removeChild(obj);
+	}
+*/
+
+
+
+</script>
+</head>
+<body>
+
+<form id="form1" method="post" action="lee9.html">
+<input id="test1" type="text" value="첫번째 폼" /><br/>
+<input id="test2" type="checkbox" value="체크함">
+<!--체크박스,  라디오버튼은 사용자가 체크를 할 경우 value값이 전송-->
+</form>
+
+<form id="form2" method="post" action="lee9.html">
+<input type="text" value="두번째 폼" /><br/>
+<input type="checkbox" value="체크함">
+</form>
+
+<!-- <select id="test3" onchange="changeText();"> -->
+<select id="test3">
+<option value="1">수박</option>
+<option value="2">사과</option>
+<option value="3">바나나</option>
+</select>
+
+<button onclick="crt();">체크</button>
+<!-- 인라인 이벤트 연결 방식-->
+
+<h1 id="bbb">  글자색상을 변경 </h1>
+
+<button id="ccc">체크</button> <button id="ddd">체크</button>
+
+<input type="text" id="eee" onkeyUp="changeText();">
+
+
+<p id="p1">p태그</p>
+
+<div id="aaa1" onclick="changeText(this)">클릭하세요</div>
+<div id="aaa2" onclick="changeText(this)">클릭하세요</div>
+<div id="aaa3" onclick="changeText(this)">클릭하세요</div>
+<!--이벤트가 발생한 대상 객체 자신 : document.getElementById("aaa1,2,3") 
+<!--각각의 div를 클릭할때마다 클릭한 div의 글자가 변경 -->
+
+<button id="b1">이벤트연결</button><button id="b2">이벤트해제</button>
+
+<div id="dd1">
+<span onclick="nodeDel(this)">자식1</span>
+<span onclick="nodeDel(this)">자식2</span>
+<span onclick="nodeDel(this)">자식3</span>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,130 @@
+create database testDB CHARACTER SET UTF8 COLLATE utf8_general_ci;
+
+
+1. 사용자 추가
+
+create user "아이디"@"localhost" IDENTIFIED BY "패스워드"
+
+create user "seoulit1004"@"localhost" identified by "@Seoulit1004";
+
+--host : 접속범위
+localhost : 직접 접속
+% : 모든 접속 허용
+192.156.1.23 : 해당 아이피만 접속 허용
+
+2. 비밀번호 변경
+
+alter user "seoulit1004"@"localhost" identified by "111111"
+
+3. 사용자 삭제
+
+drop user "seoulit1004"@"localhost"
+
+4. 사용자 권한
+
+grant 권한들 on 데이터베이스.테이블 to "seoulit1004"@"localhost"
+
+권한들 : DDL, DML 권한
+
+모든 데이터베이스에 대한 모든 권한을 부여
+grant all on *.* to "seoulit1004"@"localhost"
+show grants for "seoulit1004"@"localhost"
+
+aaa에게 testDB에 대한 모든 권한을 부여
+grant all on testDB.* to "aaa"@"localhost"
+
+test에게 sqlDB의 select 권한만 부여
+grant select on sqlDB.* to "test"@"localhost"
+grant update, delete, insert on sqlDB.* to "test"@"localhost"
+권한 해제
+revoke 권한 on 데이터베이스.데이블 from 사용자
+
+
+
+revoke all on *.* from "seoulit1004"@"localhost"
+
+revoke drop on testDB.* from "aaa"@"localhost"
+
+grant select on sqlDB.userTbl_view to "택배 계정"
+
+
+
+<트랜젝션>
+일을 수행하는 단위, 하나 이상의 sql로 구성
+
+select @@autocommit
+set session autocommit = 0;
+
+start transaction;
+savepoint A;
+
+rollback to a;
+
+truncate(내용비우기) 나 drop(삭제)은 복구 안됌 => DDL구문
+
+delete는 가능 => DML구문 
+
+
+<인덱스> : 데이터를 빨리 검색할 수 있도록 도와주는 자료구조
+
+-- 장점
+검색 속도가 무척 빨라질 수 있음(항상 그런 것은 아님)
+쿼리의 부하가 줄어들어 시스템 전체의 성능 향상
+
+-- 단점
+인덱스가 데이터베이스 공간을 차지해서 추가적인 공간 필요
+대략  데이터베이스 크기의 10% 정도의 추가 공간 
+처음 인덱스 생성하는데 시간 소요
+데이터의 변경 작업(insert, update, delete)이 자주 일어나는 경우 성능이 나빠질 수 있음
+
+1) 인덱스의 종류
+
+--클러스터형 인덱스(Clustered index)
+'영어 사전'과 같은 책
+테이블 당 한개만 지정 가능
+행 데이터를 인덱스로 지정한 열에 맞춰 자동 정렬
+primary key, unique not null(기본키가 없을 경우 정렬 컬럼)
+속도가 가장 빠름
+데이터가 많을 경우 기본키 재 생성시 시스템 부하가 크다
+리프 페이지 자체가 데이터
+
+--보조 인덱스(Secondary index)
+테이블당 여러 개도 생성 가능
+unique
+리프 페이지는 인덱스 페이지
+hip 영역에 실제 데이터 페이지 별도 구성
+
+
+show index from 테이블명
+
+non_unique: 0 ==> 중복 안되는 인덱스
+null : ==> 클러스터형 인덱스는 not null
+
+- 인덱스 상태
+
+show table status like "테이블명";
+Date_length : 클러스터형(기본키) 인덱스 포함한 데이터 크기
+index_length : 보조 인덱스의 크기
+
+alter table userTbl drop primary key
+alter table userTbl add constraint pk_name primary key(name)
+
+-인덱스 생성
+create (unique) index 인덱스명
+on 테이블명 (컬럼1, 컬럼2); 
+
+--not unique
+create index idx_userTbl_addr on userTbl (addr)
+--unique
+create unique index idx_userTbl_ID on userTbl (userID)
+--2개의 컬럼
+create index idx_userTbl_ID_Year on userTbl (userID,birthYear)
+
+-인덱스 삭제
+drop index 인덱스명 on 테이블명
+
+읽은 페이지수
+show global status like "innodb_pages_read";
+
+
+

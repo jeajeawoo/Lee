@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+    <script>
+	// 버튼을 클릭하면 span 의 글자 색상을 red로
+	// span 글자위로 마우스를 올리면  배경색상이 yellow
+	// 각각 고전이벤트 , 인라인 이벤트, 표준 이벤트로 연결하시오.
+
+// 고전 이벤트 연결 방식
+/* window.onload = function(){
+//브라우저가 모든 내용을 다 읽고 난 후에 실행
+	document.getElementById("bbb").style.color = "red";
+
+	} */
+//표준 이벤트 모델
+//대상객체.addEventListener(이벤트명, 이벤트핸들러)
+/* window.onload = function() {
+
+	document.getElementById("ccc").addEventListener("click", changeColor);
+	document.getElementById("ccc").addEventListener("click", changeBack);
+	//동일한 이벤트에 다수의 핸들러 사용
+	function changeColor() {
+		document.getElementById("bbb").style.color = "red";
+		}
+
+	document.getElementById("bbb").addEventListener("mouseover", changeBack);
+	//마우스 올리면
+	function changeBack() {
+
+		document.getElementById("aaa").style.backgroundColor = "orange";
+		}
+
+	}; */
+    </script>
+</head>
+<body>
+<span id="test">span 글자</span>
+<button id="abc">클릭하세요</button><br />
+
+</body>
+</html>

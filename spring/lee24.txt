@@ -1,0 +1,188 @@
+<환경 구축>
+0.jdk17 설치
+인텔리j
+
+##스프링 부트 -- 웹 프로그램을 MVC로 구현 하게 도와주는 프레임워크
+start.spring.io
+1.프로젝트 생성
+
+spring-web
+thymeleaf(뷰,템플릿)
+mustache(뷰,템플릿)
+jpa 
+
+http://localhost:8089/index.html
+
+hello.mustache
+
+doc -> 탭키
+
+http://localhost:8089/hello
+
+controller -- 연결 (사용자 입력 정보를 --dao 연결, view로 연결)
+view --> templates 폴더안에 있음
+
+2. jdk 설정 확인
+
+Ctrl+Alt +Shift+s 
+-- SDK :17확인
+-- Language Level : SDK default
+
+3. 필드 옵션 수정
+
+setting > Build,Execution, Deployment > Build Tool > Gradle 에서 
+빌드도구, 테스트 도구를 Intellij IDEA로 변경
+
+4. 인코딩
+
+setting > Editor > File Encoding 에서
+글로벌, 프로젝트, properties 모두 UTF-8 로 변경
+## mustache 가 인식 안될 경우
+
+5. mustache 플러그인 설치
+
+setting > Plugin  에서 mustache  검색 하여 설치
+setting > Editor > File Type 에서
+Handllers/Mustache 클릭 후 *.mustache 확인
+
+### mustach 한글 오류
+application.properties 파일에
+server.servlet.encoding.force-response:true 
+
+
+[MVC]
+
+Model - 데이터 관련,
+Controller - Model과 View를 연결
+View - mustache
+
+view - 부트스트랩
+
+localhost:8089/hello-string?name=홍길동&addr=진주&age=30
+
+name을 view로 전달
+
+{{#컬렉션명}}
+	{{필드명}},,,
+{{/컬렉션명}}
+
+--입력 양식의 데이터를 전송하는 방식(post)
+
+1) 사용자가 데이터를 입력하는 뷰(폼)
+제목, 내용
+2)post 방식으로 전송
+
+3) dto 객체로 전송받음
+
+4)객체 자체를 view로 전송해서 출력
+
+
+JPA 자바언어로 DB에 명령을 내리는 도구
+
+엔티티: 자바 객체를 DB가 이해할수 있게 만든 것. 이를 기반으로 테이블이 만들어짐
+리파지터리: 엔티티가 DB 속 테이블에 저장 및 관리될 수 있게 하는 인터페이스
+
+findAll() : iterable타입
+iterable -> Collection -> List -> ArrayList
+	@Override
+    	ArrayList<Board> findAll();
+
+
+1) 수정값들을 dto로 받음 (dto에 id필드추가 변환메소드에도 id매개변수 추가)
+
+RediectAttributes : 리다이렉트 시 값을 전송하는 객체
+
+addFlashAttribute : 전송하는 메소드
+
+
+
+REST API
+서버의 자원을 클라이언트에 구애 받지 않고 사용할 수 있게 하는 설계 방식
+
+JSON
+서버가 클라이언트의 요청에 대한 응답으로 화면이 아닌 데이터를 전송할 때 사용하는 응답 데이터
+키와 값으로 구성된 정렬되지 않은 속성의 집합
+
+
+1.리소스 : URL
+2.동작 : HTTP 프로토콜의 메소드 방식 (get , post , put(patch), delete)
+3.메세지(데이터) : json
+
+put : 데이터 전부 수정
+patch : 데이터 일부분 수정
+
+<응답코드>
+HttpStatus.BAD_REQUEST 400
+HttpStatus.OK 200
+HttpStatus.CREATED 201
+
+ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null)
+ResponseEntity.status(HttpStatus.OK).body(member);
+
+
+<update>
+
+method:patch
+localhost:8089/api/board/id
+
+var obj = { "title":$("#title").val(), "content":$("#content").val()};
+data:JSON.stringify(obj),
+headers:{'Content-Type':'application/json'},
+
+
+
+서비스 로직 구현
+
+@Query(value = "SELECT * FROM buy_item WHERE memberid=:memberid",nativeQuery = true)
+
+리파지토리 호출과 기타 기능 역할
+
+서비스 객체를 호출
+
+@Autowired 어노테이션을 만나면 인스턴스 객체(싱글톤)를 만듦
+==> DI(의존성 주입), depndency injection
+
+서비스클래스
+인터페이스, 구현클래스
+
+<외래키 설정>
+-- comment
+id --> 기본키
+body --> 댓글
+name --> 작성자
+boardid --> 원글의 id(외래키)
+
+1. 엔티티
+	@ManyToOne ==> 다대일 관계
+	@JoinColumn(name="외래키컬럼명")
+	private 참조할 엔티티 클래스
+
+1) 전체댓글조회 findAll();
+select * from comment
+결과가 엔티티가 리턴(참조하고 있는애도 리턴)
+엔티티에 참조하고 있는애를 떼내는 메소드 dto로 변환
+
+2) 특정 본문 조회
+select * from comment where boardid=?
+/api/board/{boardid}/comment
+
+
+META-INF : orm.xml
+복잡한 쿼리문을 작성할때 orm
+
+2.댓글
+{ "cbody: 새로운댓글" , "name:홍길동", boardid:9"}
+@PostMapping("/api/boards/{boardid}/commnet")
+
+검색기능
+member/{memberid}/buyitem/{item}
+
+const today = new date();
+today.getFullYear();
+today.getMonth();
+today.getDay();
+
+<예외처리>
+insert,delete 
+
+@Transactional :트랜젝션 롤백처리해주는 어노테이션

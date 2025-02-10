@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	.copy { color: red; font-weight:bold; }
+	div { background-color:yellow; }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+
+		// 첫번째 버튼을 클릭하면 첫번째 p의 글자를 div 요소 내부의 끝에 추가한뒤 글자색상은 red 굵게 처리
+		// p 태그는 클릭을 하면 1px 글자 크기가 커지는 이벤트를 가지고 있고
+		// 배경색상을 blue 로 바꾸는 이벤트도 있음
+
+		// 두번째 버튼을 클릭하면 p 요소에 있는 클릭 이벤트 중에서 배경 바뀌는 이벤트만 제거
+		$("button:first").click(function(){
+		
+			$("p:first").appendTo("div").addClass("copy") 
+			
+		}); 
+			
+		$("p").on("click", changeColor)
+
+			function changefont(){
+				$(this).css("fontSize","+=1px")
+				};	
+			function changeColor(){
+				$(this).css("backgroundColor","blue")
+				};
+		$("p").on({
+			"click" : changefont
+			});
+
+		$("button:last").click(function(){
+
+			$("p").off("click",changeColor);
+
+			});
+
+
+		});
+/* $(document).ready(function(){
+
+	//$(selector).append(function(index))
+	$("button").click(function(){
+
+		$("p").append(function(i,h){
+		// i ==>append 하고자하는 선택자의 인덱스
+		// h ==>append 하고자하는 선택자의 html 
+			return //"추가되는요소"
+			
+			});
+		});
+
+	});  */
+/*	$("button").click(function() { // 버튼을 클릭하면 div에 있는 이벤트 해제
+		$("div").off(); 		// 전체 해제
+		$("div").off(click);    	// 클릭만 해제 
+		$("div").off(click,changecolor);// 클릭이벤트 중에서 색상 변경을 해제
+		
+*/
+	
+
+	</script>
+</head>
+<body>
+
+	<div>
+		<p>첫번째 단락</p>
+		<p>두번째 단락</p>
+	</div>
+
+	<button>첫번째 p의 글자를 div 요소 내부의 끝에 추가한뒤 글자색상은 red 굵게 처리</button><br />
+	<button>p 배경색상 이벤트 제거</button>
+
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script>
+//window :  브라우저와 관련된 객체
+//document.write("브라우저 크기 "+window.innerWidth);
+//screen : 사용자의 화면
+//document.write("화면 크기 " + screen.width);
+//confirm:확인==> 사용자가 확인을 클릭하면 true 취소를 클릭하면 false
+
+/* var con = confirm("이동하겠습니까");
+alert(con);
+if ,,,else,,, */
+
+//window.open()
+//open(URL,윈도이름,윈도모양); 새로운 브라우저 열기 top,left,width,height
+//window.open("lee8.html","","width=300,height=300,top=100,left=200");
+//window.close()
+//window.print()
+
+//var child = window.open("lee8.html","","width=300,height=300,top=100,left=200");
+// 부모창에서 자식창을 제어가능
+//자식창에  "hello" 글자입력
+//child.document.write("hello");
+
+//setinterval (함수명, 함수가 실행될 시간): 시간마다  반복 실행
+
+/*function abc(){
+	alert("hello");
+}
+setInterval (abc,3000); */
+
+//clearinterval(변수);
+//var cc =setInterval(abc,3000);
+
+// location 객체 : 주소 정보
+//location.href
+//document.write(location.href);
+//document.write(decodeURIComponent(location.href));
+//location.herf="http://www.google.com";
+//페이지 이동
+
+//문서 객체 : HTML을 제어한다
+										//getElementById , getElementByTagName, getElementByClassName
+/* function chColor(){
+	document.getElementById("aaa").style.color = "red";
+	//문서객체에서(HTML) id가 aaa인 요소를 찾아서 style속성 중 색상을 red로
+	var aa = document.getElementsByTagName("p");
+	for(var i=0; i<aa.length; i++) {
+		aa[i].style.color = "blue";
+	}
+}	//여러개를 다룰때는 배열처럼 [] 다룬다
+ */
+
+//elemment.innerHTML : 문서객체의 html 포함글자를 get 하거나 set 함
+
+/* function chHTML(){
+	var aa = document.getElementById("bbb").innerHTML;
+	var bb = document.getElementById("bbb").innerText;
+	alert(aa);
+	alert(bb);
+	//id 가 aaa 의 글자를"변경된 글자";
+	document.wirte(aa)
+	//문서를 읽은 후에 실행 할 경우 이전 내용을 리셋
+	document.getElementById("aaa").innerText="변경된 글자"
+}  */
+
+/* function chColor(){
+	//css 적용: 요소.style.속성명="값";
+	//요소{속성:값}
+	document.getElementById("bbb").style.color="red";
+	document.getElementById("bbb").style.backgroundColor="yellow";
+	document.getElementById("bbb").style.border="2px solid black";
+}  */
+
+// element.setAttribute(attribute, value): 속성을 설정
+// element.getAttribute(attribute) : 속성을 가져오기
+
+	// href의 속성을 가져 와서 div  의 텍스트로변경
+/* function getAttr(){
+	var aa = document.getElementById("aaa").getAttribute("href");
+
+	document.getElementById("ccc").innerText = aa;
+} */
+	
+
+	//img의 src속성을 가져와서 div의 텍스트로 변경
+/* function getAttr(){
+	var aa = document.getElementById("bbb").getAttribute("src");
+
+	document.getElementById("ccc").innerText = aa;
+}  */	
+
+/* function getAttr() {
+
+	document.getElementById("bbb").setAttribute("src", "iu.jpg"); 
+	//bbb 의 src 속성을 iu.jpg 로 변경
+
+}   */
+
+
+	//HTML 생성
+/*1. document.createElement(element)
+	html 요소(태그)를 생성
+
+2. document.createTextNode(text)
+	텍스트 생성
+
+3. 부모객체.appendChild(자식객체): 부모(요소)에 자식(글자)연결
+*/
+
+// <h1>제목</h1>
+
+/* function crt() {
+
+	var h1 = document.createElement("h1");
+	// <h1></h1>
+
+	var txt = document.createTextNode("제목");
+	// 제목
+
+	h1.appendChild(txt);
+
+	// <h1>제목</h1>
+
+	// 최종적으로 div 안에 객체에 연결
+
+	document.getElementById("ddd").appendChild(h1);
+	// <div><h1>제목</h1></div>
+}   */
+
+//<ol>
+// <li>목록</li>
+// <li>목록</li>
+//</ol>
+
+/* function crt() {
+
+	var ol = document.createElement("ol");
+	// <ol></ol>
+
+
+	for(var cnt=0; cnt<3; cnt++) {
+
+		var li = document.createElement("li");
+		// <li><li>
+
+		var txt = document.createTextNode("목록");
+		// 목록
+
+		li.appendChild(txt);
+
+		ol.appendChild(li);
+
+
+	}
+	// 최종적으로 div 에 연결하여 출력
+
+	document.getElementById("aaa").appendChild(ol);
+
+} */
+
+
+/* function crt() {
+
+	var aa = document.createElement("a");
+	// <a></a>
+
+	var txt = document.createTextNode("네이버");
+	// 네이버
+
+	aa.appendChild(txt);
+	// <a>네이버</a>
+
+	aa.setAttribute("href", "http://www.naver.com");
+
+	document.getElementById("aaa").appendChild(aa);
+
+	}  */
+
+
+
+
+</script>
+</head>
+<body>
+<!--<h1 id="aaa">타이틀 글자</h1>
+
+<div id="bbb">
+	<h2>블럭태그</h2>
+</div>
+<p>p1</p>
+<p>p2</p>
+<p>p3</p> -->
+<!--<button onclick="window.close();">자식창 닫기</button>		
+<button onclick="window.print();">인쇄하기</button>
+<button onclick="clearInterval(cc);">취소</button> 
+<a href="lee8.html"> 페이지이동</a> -->
+<!--<a id="aaa" href="http://www.naver.com">네이버로 이동</a><br />
+
+<img id="bbb" src="이미지.jpeg">
+
+<div id="ccc">
+</div> 
+
+<button onclick="getAttr();">클릭하세요</button>
+
+<button onclick="chHTML();">text클릭하세요</button>
+
+<button onclick="chColor();">style클릭하세요</button>	-->
+
+<button onclick="crt();">클릭하세요</button>
+
+<div id="aaa">
+
+</div>
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	    .css_test input {
+			 border : 3px solid red;
+			 margin-top : 5px;
+			 padding : 10px;
+			 width : 500px;
+		 }
+		 .css_test input.copyed {
+			 border-color : blue;
+		 }
+ 
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+
+			//첫번째 입력 양식에 값을 입력할 때 마다 나머지 입력 양식에 같은 내용이 출력되도록
+			$("input:first").on("input",function(){
+			
+				var aa = $(this).val();
+				$("input:first").each(function(i,a){
+
+					
+					
+					$(".copyed").val(aa)
+
+				});
+
+			});
+
+		});
+
+
+	</script>
+</head>
+<body>
+
+<div class="css_test">
+     아래에 빨간칸에 텍스트를 입력해 보세요<br />
+     <input type="text" /><br /><br />
+     <input type="text" class="copyed" /><br />
+     <input type="text" class="copyed" /><br />
+     <input type="text" class="copyed" /><br />
+     <input type="text" class="copyed" /><br />
+ </div>
+ 
+</body>
+</html>

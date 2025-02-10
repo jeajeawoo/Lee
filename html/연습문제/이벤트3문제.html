@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+    <script>
+
+	// 해당 이미지를 클릭하면 id  첫번째 이미지 화면에 클릭한 이미지가 
+	// 보일 수 있도록 this를 이용
+
+function change(obj){
+
+	document.getElementById("img").src =obj.src
+
+}
+
+
+	
+    </script>
+</head>
+<body>
+<img id="img" src="이미지.jpeg" width="300">
+<img src="이미지.jpeg" onclick="change(this);"  width="100">
+<img src="이미지2.jpeg" onclick="change(this);" width="100"> 
+<img src="이미지3.jpeg" onclick="change(this);" width="100">
+</body>
+</html>

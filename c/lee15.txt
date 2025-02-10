@@ -1,0 +1,167 @@
+CLI:Command Line Interface
+
+GUI:
+
+[seoulit@lcalhost ~]$ ==> 프롬프트
+[접속자명@컴퓨터명  접속자가 위치한 디렉토리]$
+/home/seoulit : seoulit의 홈디렉토리
+## seoulit:현재 터미널에 접속되어 있는 사용자명
+## 사용자가 여러명(관리자+일반사용자)
+##
+==> 리눅스(쉘,shell)가 사용자가 입력할 명령어를 기다림
+
+bash shell
+
+커널 --> 쉘 --> 
+
+리눅스라는 사람이 커널 소스 코드 공개 => GPL라이센스 GNU프로젝트
+
+
+[명령어의 구조]
+(명령어) (-옵션들) (명령어를 수행할 파일 또는 디렉토리)
+
+1) ls(list) 디렉토리의 내용을 확인하는 용도
+ls -l : 자세하게 내용을 확인한다
+ls -a : 숨김파일 표시
+li -l /etc : etc안에 있는 내용을 확인
+
+2)cd(change Directiory) : 디렉토리 이동
+
+## /: 최상위 디렉토리 = C:\
+## ..:부모(한단계 위)디렉토리
+
+(cd) (이동할디렉토리명-디렉토리의 경로)
+
+### 절대경로 - 무조건 / 부터 시작  최상위디렉토리부터 아래로 기술
+cd /usr/local
+
+## 상대경로 - 현재  접속자의위치에서부터 기술
+cd ../../usr/local
+
+3)mkdir : 디렉토리 생성
+mkdir 디렉토리명
+
+## 절대경로
+mkdir /home/seoulit/aa
+
+## 상대경로
+mkdir aa
+
+mkdir -p /home/seoulit/dd/ee/ff
+mkdir -p dd/ee/ff
+
+4)cp : 파일복사
+cp 원본파일 복사할파일
+
+cp /home/seoulit/aaa.txt /home/seoulit/aaa1.txt
+cp aaa.txt aaa1.txt
+cp aaa.txt aa <-디렉토리
+cp aaa.txt aa/bb/bb.txt
+
+###와일드카드 : 대체 문자열
+-* :0개 이상의 문자열
+-? :1개 문자
+
+aaa?.txt = aaa1 aaa2 aaab
+aaa*.txt = aaa aaa1 aaa2 aaab
+
+5) mv : 파일이동
+mv 원본파일명 이동디렉토리명
+mv 원본파일명 다른파일명 ==> 파일명 이름바꾸기
+
+6) rm : 파일 삭제
+rm 삭제할 파일명
+-i 확인해줌
+-r 디렉토리명
+
+[사용자 관리]
+1) 관리자 : root ,  프로그램 설치, 설정, 사용자관리
+sudo passwd root
+2) 일반 사용자 : 홈 디렉토리에서만 생성, 수정, 삭제, 실행
+1개 이상의 그룹에 등록
+
+## 사용자 정보:/etc/passwd
+
+cat : 파일 내용 확인
+
+## 비밀번호 정보 : /etc/shadow
+
+## 관리자로 전환 : su
+
+## 그룹 정보 : /etc/group
+
+##  홈디렉토리: /home
+
+1)사용자 추가
+useradd 사용자명 ==> 사용자명이랑 동일한 그룹도 생성
+
+비밀번호 설정
+passwd 사용자명
+
+2)그룹 지정 사용자 추가
+useradd -g 지정할그룹명 사용자명
+
+##실행 파일 생성
+gedit 파일명
+명령어 
+쉘스크립트
+
+1)소유권 변경
+chown 소유자명 파일명
+
+2)그룹권 변경
+chgrp 그룹명 파일명
+
+- rw- r-- r--. seoulit seoulit ... my.sh
+-소유자,그룹,다른사용자
+r(4) - read 읽기
+w(2) - write 수정(파일) 생성 또는 삭제(디렉토리)
+x(1) - excute 실행
+- rw- r-- r-- = 6 4 4
+- rwx r-x r-x = 7 5 5
+3)권한변경
+chmod 권한가중치 파일명
+chmod 755 my.sh
+## 파일을 실행 하는 방법
+- 파일의 경로를 명확하게 명시한다
+#절대경로 /home/seoulit/my.sh
+#상대경로 ./my.sh 현재 디렉토리에 있는 my.sh를 실행
+
+a 디렉토리의 안에 실행파일 생성
+
+## 한꺼번에 변경
+chown -R seoulit a ==> a 디렉토리 안의 모든 파일 일괄 변경
+
+#######
+
+서버(리눅스)
+클라이언트(윈도우)
+
+1)원격접속
+-리눅스에 서버 프로그램(데몬) (설치) -sshd
+dnf -y install sshd
+
+systemctl start sshd ==> 프로그램 구동
+systemctl status sshd ==> 상태 확인
+systemctl stop sshd ==> 중지
+
+ip 주소 확인
+ifconfig 192.168.1.77
+-클라이언트(윈도우) 프로그램 설치:putty
+ssh 사용자명@ ip주소 비밀번호
+ftp ip주소
+exit 탈출
+
+2)파일 전송 프로그램 FTP
+리눅스에 설치 : vsftpd
+dnf -y install vsftpd
+
+systemctl start vsftpd
+
+dnf -y install firewall-config 방화벽 설정
+
+firewall-config 에서 ftp 체크
+
+- 윈도우에 프로그램 설치 : 파일질라 (클라이언트)
+호스트:ip주소 사용자명 비밀번호 
+

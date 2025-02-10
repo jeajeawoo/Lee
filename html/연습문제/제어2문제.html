@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<style>
+	
+	td{border:1px solid red;}
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+	</script>
+    <script>
+	$(document).ready(function(){
+		// 행 추가하기(끝에서부터)
+		// 행 지우가(끝에서 부터)
+		$("#btn1").click(function(){
+			$("body").append("<tr><td>행열추가1"+"</td><td>행열추가2</td></tr>")
+			
+		});
+
+		$("#btn2").click(function(){
+			$("tr:last").remove();
+		});
+
+	});
+	
+/* $(document).ready(function(){
+
+	//$(selector).append(function(index))
+	$("button").click(function(){
+
+		$("p").append(function(i,h){
+		// i ==>append 하고자하는 선택자의 인덱스
+		// h ==>append 하고자하는 선택자의 html 
+			return //"추가되는요소"
+			
+			});
+		});
+
+	});  */
+
+
+/* $(document).ready(function(){
+	//prepend() - 컨텐츠를 선택된 요소(태그) "내부"의 앞 부분에서 추가앞
+	//append() - 컨텐츠를 선택된 요소(태그) "내부"의 끝 부분에서 추가
+	$("button").click(function(){
+
+		$("p").append("p 태그에 글자 추가");
+		$("ol").append("<li>글자 추가</li>");
+
+		});
+
+	});  */
+    </script>
+</head>
+<body>
+
+	<button id="btn1">행 추가하기</button>
+	<button id="btn2">행 삭제하기</button>
+	<hr>
+
+</body>
+</html>

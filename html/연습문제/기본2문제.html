@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>자바스크립트</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+
+		// 버튼을 클릭하면 href 가 http://www.naver.com 인 텍스트의 색상을 red로
+		// 배경 색상은 yellow,  글자 크기는 40px
+		$("button").click(function(){
+
+			$("a[href='http://www.naver.com']").css("color","red");
+
+			$("a[href*='http']").css({"backgroundColor":"yellow" , "fontSize":"40px"});
+			});
+
+		});
+
+
+/* $(document).ready(function(){
+	$("#bt").click(function(){
+		
+		$("div > p").css("backgroundColor", "Yellow");
+		
+		$("div  a").css("backgroundColor", "green");
+		
+		// 속성 : 선택자[속성명]
+		//$("a[href]").css("backgroundColor", "yellow");
+
+		// 속성 : 선택자[속성명=값] ==>  동일한 값
+		//$("a[href='http://www.naver.com']").css("backgroundColor", "yellow");
+
+		// 선택자[속성명*=값] ==> 값이 포함된것
+		//$("a[href*='http://www.naver.com']").css("backgroundColor", "yellow");		
+
+		});
+	});  */
+
+	</script>
+</head>
+<body>
+
+<a href="http://www.naver.com">네이버</a>
+<a href="http://www.seoulit.co.kr">서울IT교육센터</a>
+<button>클릭하세요</button>
+</body>
+</html>

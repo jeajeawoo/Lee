@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDEX</title>
+	<style>
+	div {
+		width:500px;
+		height:150px;
+		background-color:#FFFF00;
+		font-size:20px;
+	}
+	</style>
+    <script>
+	// 클릭하면 input의 value 값으로 li를 추가
+
+function myFunction(){
+	var aa = document.getElementById("abc").value;
+	var li = document.createElement("li");
+	var txt = document.createTextNode(aa)
+	li.appendChild(txt)
+	myList.appendChild(li);
+	
+		
+	}
+
+
+    </script>
+</head>
+<body>
+
+메뉴를 입력하세요 <input type="text" id="abc">
+<button onclick="myFunction()">버튼을 눌러보세용</button><br />
+오늘의 야식 메뉴는<br />
+<ol id="myList">
+
+</ol>
+
+</body>
+</html>
